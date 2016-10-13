@@ -22,9 +22,9 @@ class Player:
     @money.setter
     def money(self, money):
         if money > 50.0:
-            self.__money = 50
+            self.__money = 50.0
         elif money < 0.0:
-            self.__money = 0
+            self.__money = 0.0
         else:
             self.money = money
 
@@ -83,13 +83,26 @@ class Player:
     def increase_happiness(self, increment):
         self.happiness = self.happiness + increment
 
+    def increase_happiness_random(self):
+        self.increase_happiness(round(random.random(), 1))
+
+    def increase_drunkenness(self, increment):
+        self.drunkenness = self.drunkenness + increment
+
+    def increase_drunkenness_random(self):
+        self.increase_drunkenness(round(random.random(), 1))
+
     def smoke(self):
         if self.smoker:
             if self.cig_left > 0:
                 self.cig_left -= 1
-                self.increase_happiness(random.random())
+                self.increase_happiness_random()
                 return "You smoke a cigarette."
             else:
                 return "You have no cigarettes left!"
         else:
             return "You are a non smoker!"
+
+    def drink(self):
+        self.increase_drunkenness_random()
+        self.increase_happiness_random()
