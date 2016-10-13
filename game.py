@@ -4,8 +4,9 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
+import newplayer
 
-
+player = False
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -230,8 +231,8 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
+    global current_room
     if is_valid_exit(current_room["exits"], direction):
-        global current_room
         current_room = move(current_room["exits"], direction)
     else:
         print("You cannot go there.")
@@ -338,7 +339,7 @@ def move(exits, direction):
 
 # This is the entry point of our program
 def main():
-
+    welcome()
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
@@ -351,8 +352,14 @@ def main():
         # Execute the player's command
         execute_command(command)
 
-
-
+def welcome():
+    print("Welcome to ___name here___ by team 13.")
+    player_name = str(normalise_input(input("What is your name? > ")))
+    player_age = int(input("What is your age? > "))
+    player_gender = str(normalise_input(input("And your gender? > ")))
+    player_smoke = bool(normalise_input(input("Do you smoke? > ")))
+    global player
+    player = newplayer.Player(player_name,player_gender,player_age, player_smoke)
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
 # See https://docs.python.org/3.4/library/__main__.html for explanation
