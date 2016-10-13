@@ -49,3 +49,27 @@ item_chips = {
 
     "description": "These chips are yum."
 }
+
+item_wine = {
+    "id": "wine",
+    
+    "name": "a bottle of wine",
+
+    "description": "This wine taste good."
+}
+
+item_flower = {
+    "id": "flower",
+    
+    "name": "a beautiful flower",
+
+    "description": "This flower is good-looking."
+}
+
+item_screen = {
+    "id": "screen",
+    
+    "name": "a huge screen",
+
+    "description": "This screen is huge and expensive."
+}

@@ -40,7 +40,7 @@ pack of biscuits. The reception is to the west.""",
 
     "exits": {"east": "Bar3", "east": "Balcony", "north": "Bar1"},
 
-    "items": []
+    "items": [item_wine]
 }
 
 room_bar3 = {
@@ -53,7 +53,7 @@ general office.""",
 
     "exits": {"north": "Balcony", "east": "Toilet", "west": "Bar2"},
 
-    "items": []
+    "items": [item_wine]
 }
 
 room_toilet = {
@@ -81,7 +81,7 @@ Queen's Buildings.""",
 
     "exits": {"east": "Toilet", "south": "Bar3", "west": "Bar2", "north": "Dancefloor"},
 
-    "items": []
+    "items": [item_flower]
 }
 
 
@@ -110,7 +110,7 @@ Queen's Buildings.""",
 
     "exits": {"north": "Food", "south": "Dancefloor", "west": "Bar1"},
 
-    "items": []
+    "items": [item_screen]
 }
 
 room_food = {
