@@ -8,13 +8,13 @@ item_id = {
 You wonder why they have printed a suicide hotline number on it?..."""
 }
 
-item_laptop = {
-    "id": "laptop",
+item_driving_license = {
+    "id": "drivinglicense",
 
-    "name": "laptop",
+    "name": "driving license",
 
     "description":
-    "It has seen better days. At least it has a WiFi card!"
+    "You need this to get into the club."
 }
 
 item_money = {
@@ -26,12 +26,12 @@ item_money = {
     "This wad of cash is barely enough to pay your tuition fees."
 }
 
-item_biscuits = {
-    "id": "biscuits",
+item_playing_cards = {
+    "id": "playingcards",
 
-    "name": "a pack of biscuits",
+    "name": "playing cards",
 
-    "description": "A pack of biscuits."
+    "description": "A pack of cards."
 }
 
 item_pen = {
