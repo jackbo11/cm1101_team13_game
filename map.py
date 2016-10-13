@@ -13,7 +13,7 @@ south and east. The exit is to the west.""",
 
     "exits": {"south": "Dancefloor", "east": "Food"},
 
-    "items": [item_biscuits, item_handbook]
+    "items": []
 }
 
 room_bar1 = {
@@ -26,7 +26,7 @@ ignore you. To the north is the reception.""",
 
     "exits":  {"east": "Dancefloor", "south": "Bar2"},
 
-    "items": []
+    "items": [item_drink]
 }
 
 room_bar2 = {
@@ -38,7 +38,7 @@ stares at his huge monitor, ignoring you completely.
 On the desk you notice a cup of coffee and an empty
 pack of biscuits. The reception is to the west.""",
 
-    "exits": {"east": "bar3", "east": "balcony", "north": "bar1"},
+    "exits": {"east": "Bar3", "east": "Balcony", "north": "Bar1"},
 
     "items": []
 }
@@ -51,7 +51,7 @@ room_bar3 = {
 You can go south to the COMSC reception, or east to the
 general office.""",
 
-    "exits": {"north": "balcony", "east": "toilet", "west": "bar2"},
+    "exits": {"north": "Balcony", "east": "Toilet", "west": "Bar2"},
 
     "items": []
 }
@@ -65,9 +65,9 @@ room_toilet = {
 in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
-    "exits": {"west": "balcony", "west": "bar3"},
+    "exits": {"west": "Bar3"},
 
-    "items": [item_pen]
+    "items": []
 }
 
 room_balcony = {
@@ -79,9 +79,9 @@ room_balcony = {
 in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
-    "exits": {"east": "toilet", "south": "bar3", "west": "bar2", "north": "dancefloor"}
+    "exits": {"east": "Toilet", "south": "Bar3", "west": "Bar2", "north": "Dancefloor"},
 
-    "items": [item_pen]
+    "items": []
 }
 
 
@@ -94,9 +94,9 @@ room_dancefloor = {
 in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
-    "exits": {"west": "bar1", "south": "balcony", "north": "stage"},
+    "exits": {"west": "Bar1", "south": "Balcony", "north": "Stage"},
 
-    "items": [item_pen]
+    "items": []
 }
 
 room_stage = {
@@ -108,9 +108,9 @@ room_stage = {
 in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
-    "exits": {"north": "food", "south": "dancefloor", "west": "bar1"}
+    "exits": {"north": "Food", "south": "Dancefloor", "west": "Bar1"},
 
-    "items": [item_pen]
+    "items": []
 }
 
 room_food = {
@@ -122,9 +122,9 @@ room_food = {
 in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
-    "exits": {"south": "stage", "west": "outside"},
+    "exits": {"south": "Stage", "west": "Outside"},
 
-    "items": [item_pen]
+    "items": [item_chips]
 }
 
 rooms = {

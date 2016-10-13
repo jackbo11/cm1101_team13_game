@@ -34,18 +34,18 @@ item_playing_cards = {
     "description": "A pack of cards."
 }
 
-item_pen = {
-    "id": "pen",
+item_drink = {
+    "id": "drink",
     
-    "name": "a pen",
+    "name": "a drink",
 
-    "description": "A basic ballpoint pen."
+    "description": "A drink."
 }
 
-item_handbook = {
-    "id": "handbook",
+item_chips = {
+    "id": "chips",
     
-    "name": "a student handbook",
+    "name": "a handful of chips",
 
-    "description": "This student handbook explains everything. Seriously."
+    "description": "These chips are yum."
 }
