@@ -54,7 +54,7 @@ while int(inv["turns"]) < 20:
         input("")
         card = random.randrange(1, 13)
         # card = 2
-        ^^ uncomment and change value to test different card values
+        #^^ uncomment and change value to test different card values
         # A (works)
         if int(card) == 1:
             print("You picked an Ace! Everyone drinks.")
