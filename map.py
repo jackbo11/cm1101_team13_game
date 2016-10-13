@@ -4,12 +4,8 @@ room_outside = {
     "name": "Outside",
 
     "description":
-    """You are in a maze of twisty little passages, all alike.
-Next to you is the School of Computer Science and
-Informatics reception. The receptionist, Matt Strangis,
-seems to be playing an old school text-based adventure
-game on his computer. There are corridors leading to the
-south and east. The exit is to the west.""",
+    """You are waiting outside in a masssive queue. You know
+    tonight will be good. """,
 
     "exits": {"south": "Dancefloor", "east": "Food"},
 
@@ -74,10 +70,8 @@ room_balcony = {
     "name": "Balcony",
 
     "description":
-    """You are standing next to the cashier's till at
-30-36 Newport Road. The cashier looks at you with hope
-in their eyes. If you go west you can return to the
-Queen's Buildings.""",
+    """You are standing in the cool breeze of the wind.
+    blah blah blah""",
 
     "exits": {"east": "Toilet", "south": "Bar3", "west": "Bar2", "north": "Dancefloor"},
 
@@ -117,10 +111,7 @@ room_food = {
     "name": "Food",
 
     "description":
-    """You are standing next to the cashier's till at
-30-36 Newport Road. The cashier looks at you with hope
-in their eyes. If you go west you can return to the
-Queen's Buildings.""",
+    """You smell the food yum.""",
 
     "exits": {"south": "Stage", "west": "Outside"},
 
