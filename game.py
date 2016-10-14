@@ -5,6 +5,7 @@ from player import *
 from items import *
 from gameparser import *
 import newplayer
+import ring_of_fire
 
 player = False
 
@@ -340,6 +341,9 @@ def move(exits, direction):
 # This is the entry point of our program
 def main():
     welcome()
+    print("Drunkenness is now: {0}".format(player.drunkenness))
+    ring_of_fire.play_ring_of_fire(player)
+    print("Drunkenness is now: {0}".format(player.drunkenness))
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)

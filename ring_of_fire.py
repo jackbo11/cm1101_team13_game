@@ -5,29 +5,29 @@
 import random
 
 
-def play_ring_of_fire():
+def play_ring_of_fire(player):
     gen = 0
     choose = 0
-
-    print("What is your name?")
-    name = input(">>> ")
+    #print("What is your name?")
+    #name = input(">>> ")
     print("\n")
-
-    print("What is your gender? (m/f)")
-    gender = input(">>> ")
-    while int(gen) == 0:
-        if str(gender) == "m":
-            gen = 1
-        elif str(gender) == "f":
-            gen = 2
-        else:
-            print("What?")
-            gender = input(">>> ")
-        print("\n")
+    #TEST LINE
+    print("Your name is: {0}, you are {1}.".format(player.name, player.gender))
+    #print("What is your gender? (m/f)")
+    #gender = input(">>> ")
+    #while int(gen) == 0:
+    #    if str(gender) == "m":
+    #        gen = 1
+    #    elif str(gender) == "f":
+    #        gen = 2
+    #    else:
+    #        print("What?")
+    #        gender = input(">>> ")
+    #    print("\n")
 
     inv = {"turns": 0, "drunk": 0}
 
-    players = {str(name), "Mia", "Sophie", "Simon", "Juan"}
+    players = {str(player.name), "Mia", "Sophie", "Simon", "Juan"}
 
     def is_player_valid(players, choice):
         if choice in players:
@@ -57,7 +57,7 @@ def play_ring_of_fire():
             if int(card) == 1:
                 print("You picked an Ace! Everyone drinks.")
                 inv["turns"] = inv["turns"] + 1
-                inv["drunk"] = inv["drunk"] + 1
+                player.drink()
             # 2 (broken)
             elif int(card) == 2:
                 print("2: You! Pick someone else to drink.")
@@ -75,13 +75,13 @@ def play_ring_of_fire():
             elif int(card) == 3:
                 print("3: Me! Take a drink.")
                 inv["turns"] = inv["turns"] + 1
-                inv["drunk"] = inv["drunk"] + 1
+                player.drink()
             # 4 (works)
             elif int(card) == 4:
                 if int(gen) == 2:
                     print("4: Whores! Take a drink")
                     inv["turns"] = inv["turns"] + 1
-                    inv["drunk"] = inv["drunk"] + 1
+                    player.drink()
                 else:
                     print("4: Whores! You don't have to drink")
                     inv["turns"] = inv["turns"] + 1
@@ -94,13 +94,13 @@ def play_ring_of_fire():
                 else:
                     print("5: Thumbs! Everyone else places their thumb on the table before you. Take a drink")
                     inv["turns"] = inv["turns"] + 1
-                    inv["drunk"] = inv["drunk"] + 1
+                    player.drink()
             # 6 (works)
             elif int(card) == 6:
-                if int(gen) == 1:
+                if player.gender == "Male":
                     print("4: Dicks! Take a drink")
                     inv["turns"] = inv["turns"] + 1
-                    inv["drunk"] = inv["drunk"] + 1
+                    player.drink()
                 else:
                     print("4: Dicks! You don't have to drink")
                     inv["turns"] = inv["turns"] + 1
@@ -113,7 +113,7 @@ def play_ring_of_fire():
                 else:
                     print("7: Heaven! Everyone else puts their hand in the air before you. Take a drink")
                     inv["turns"] = inv["turns"] + 1
-                    inv["drunk"] = inv["drunk"] + 1
+                    player.drink()
             # 8 (broken)
             elif int(card) == 8:
                 choice = input("8: Mate! Pick someone else to drink with.")
@@ -123,7 +123,7 @@ def play_ring_of_fire():
                             print(value, "took a drink")
                             choose = 1
                             inv["turns"] = inv["turns"] + 1
-                            inv["drunk"] = inv["drunk"] + 1
+                            player.drink()
                         else:
                             print("who?")
             # 9 (uncompleted)
