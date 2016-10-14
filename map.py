@@ -118,6 +118,18 @@ room_food = {
     "items": [item_chips]
 }
 
+room_taly = {
+    "name": "Talybont",
+
+    "description":
+    """You are in Talybont North having pre drinks.""",
+
+    "exits": {"south": "Outside"},
+
+    "items": [item_drink]
+}
+
+
 rooms = {
     "Dancefloor": room_dancefloor,
     "Outside": room_outside,
@@ -127,6 +139,7 @@ rooms = {
     "Bar2": room_bar2,
     "Bar3": room_bar3,
     "Balcony": room_balcony,
-    "Toilet": room_toilet
+    "Toilet": room_toilet,
+    "Talybont": room_taly
     
 }
