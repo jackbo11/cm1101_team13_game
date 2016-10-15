@@ -1,4 +1,4 @@
-import string
+import string, re
 
 # List of "unimportant" words (feel free to add more)
 skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
@@ -33,8 +33,8 @@ def filter_words(words, skip_words):
 def remove_punct(text):
     """This function is used to remove all punctuation
     marks from a string. Spaces do not count as punctuation and should
-    not be removed. The funcion takes a string and returns a new string
-    which does not contain any puctuation. For example:
+    not be removed. The funcion takes a string and returns a new
+    string which does not contain any puctuation. For example:
 
     >>> remove_punct("Hello, World!")
     'Hello World'
@@ -43,12 +43,7 @@ def remove_punct(text):
     >>> remove_punct(",go!So.?uTh")
     'goSouTh'
     """
-    no_punct = ""
-    for char in text:
-        if not (char in string.punctuation):
-            no_punct = no_punct + char
-
-    return no_punct
+    return re.sub(r'[{0}]'.format(string.punctuation), "", text)
 
 
 def normalise_input(user_input):
@@ -76,10 +71,13 @@ def normalise_input(user_input):
     ['go', 'passage', 'south']
 
     """
-    # Remove punctuation and convert to lower case
-    no_punct = remove_punct(user_input).lower()
+    if user_input and user_input[0] == "/":
+        return user_input.split()
+    else:
+        # Remove punctuation and convert to lower case
+        no_punct = remove_punct(user_input).lower()
 
-    #
-    # COMPLETE ME!
-    #
-    return filter_words(no_punct.split(),skip_words)
+        #
+        # COMPLETE ME!
+        #
+        return filter_words(no_punct.split(), skip_words)
