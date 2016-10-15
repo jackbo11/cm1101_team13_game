@@ -5,8 +5,7 @@
 import random
 
 
-def play_ring_of_fire(player):
-    gen = 0
+def play_ring_of_fire(player, timer):
     choose = 0
     #print("What is your name?")
     #name = input(">>> ")
@@ -51,6 +50,7 @@ def play_ring_of_fire(player):
             print("It is your turn. Press any key to pick a card!")
             input("")
             card = random.randrange(1, 13)
+            timer.add_minutes(2)
             # card = 2
             #^^ uncomment and change value to test different card values
             # A (works)

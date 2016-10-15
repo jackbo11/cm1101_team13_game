@@ -5,9 +5,11 @@ from player import *
 from items import *
 from gameparser import *
 import newplayer
+import gametime
 import ring_of_fire
 
 player = newplayer.Player()
+timer = gametime.GameTime()
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -364,7 +366,7 @@ def move(exits, direction):
 # This is the entry point of our program
 def main():
     welcome()
-    ring_of_fire.play_ring_of_fire(player)
+    ring_of_fire.play_ring_of_fire(player, timer)
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
