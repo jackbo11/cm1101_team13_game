@@ -34,7 +34,7 @@ stares at his huge monitor, ignoring you completely.
 On the desk you notice a cup of coffee and an empty
 pack of biscuits. The reception is to the west.""",
 
-    "exits": {"east": "Bar3", "east": "Balcony", "north": "Bar1"},
+    "exits": {"east": "Balcony", "north": "Bar1"},
 
     "items": [item_wine]
 }
@@ -129,6 +129,16 @@ room_taly = {
     "items": [item_drink]
 }
 
+room_taxi = {
+    "name": "Taxi",
+
+    "description":
+    """You are in taxi.""",
+
+    "exits": {"south": "Outside"},
+
+    "items": []
+}
 
 rooms = {
     "Dancefloor": room_dancefloor,
@@ -140,6 +150,7 @@ rooms = {
     "Bar3": room_bar3,
     "Balcony": room_balcony,
     "Toilet": room_toilet,
-    "Talybont": room_taly
+    "Talybont": room_taly,
+    "Taxi": room_taxi
     
 }
