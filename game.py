@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
 from map import rooms
-from player import *
 from items import *
 from gameparser import *
-import newplayer
+import player
 import gametime
 import ring_of_fire
 
@@ -63,7 +62,7 @@ def print_inventory_items(items):
     manner similar to print_room_items(). The only difference is in formatting:
     print "You have ..." instead of "There is ... here.". For example:
 
-    >>> print_inventory_items(inventory)
+    >>> print_inventory_items(player.inventory)
     You have id card, laptop, money.
     <BLANKLINE>
 
@@ -238,9 +237,9 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    global current_room
-    if is_valid_exit(current_room["exits"], direction):
-        current_room = move(current_room["exits"], direction)
+    global player
+    if is_valid_exit(player.current_room["exits"], direction):
+        player.current_room = move(player.current_room["exits"], direction)
     else:
         print("You cannot go there.")
 
@@ -251,9 +250,10 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    if any(d['id'] == item_id for d in current_room["items"]):
-        inventory.extend([item for item in current_room["items"] if item.get('id') == item_id])
-        current_room["items"][:] = [item for item in current_room["items"] if item.get('id') != item_id]
+    global player
+    if any(d['id'] == item_id for d in player.current_room["items"]):
+        player.inventory.extend([item for item in player.current_room["items"] if item.get('id') == item_id])
+        player.current_room["items"][:] = [item for item in player.current_room["items"] if item.get('id') != item_id]
     #current_room["items"].append(item_id)
     else:
         print("You cannot take that.")
@@ -265,9 +265,9 @@ def execute_drop(item_id):
     no such item in the inventory, this function prints "You cannot drop that."
     """
     
-    if any(d['id'] == item_id for d in inventory):
-        current_room["items"].extend([item for item in inventory if item.get('id') == item_id])
-        inventory[:] = [item for item in inventory if item.get('id') != item_id]
+    if any(d['id'] == item_id for d in player.inventory):
+        player.current_room["items"].extend([item for item in player.inventory if item.get('id') == item_id])
+        player.inventory[:] = [item for item in player.inventory if item.get('id') != item_id]
     #current_room["items"].append(item_id)
     else:
         print("You cannot drop that.")
@@ -370,11 +370,11 @@ def main():
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
-        print_room(current_room)
-        print_inventory_items(inventory)
+        print_room(player.current_room)
+        print_inventory_items(player.inventory)
 
         # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
+        command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
 
         # Execute the player's command
         execute_command(command)
