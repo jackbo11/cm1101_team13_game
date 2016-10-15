@@ -2,9 +2,9 @@ import random
 
 
 class Player:
-    def __init__(self, name, gender, age, smoker):
+    def __init__(self, name="Player", gender="Male", age=18, smoker=False):
         self.name = name.title()
-        self.gender = gender.title()
+        self.gender = self.__determine_gender(gender)
         self.age = age
         self.smoker = bool(smoker)
         self.__money = 30.0
@@ -14,6 +14,17 @@ class Player:
         self.__cig_left = 0
         if self.smoker:
             self.__cig_left = 10
+
+    @staticmethod
+    def __determine_gender(gender_to_determine):
+        gender_to_determine = gender_to_determine.lower()
+        if gender_to_determine:
+            if gender_to_determine[0] == "m":
+                return "Male"
+            elif gender_to_determine[0] == "f":
+                return "Female"
+        else:
+            return "Unknown"
 
     @property
     def money(self):
@@ -30,7 +41,7 @@ class Player:
 
     @property
     def drunkenness(self):
-        return self.__drunkenness
+        return round(self.__drunkenness,1)
 
     @drunkenness.setter
     def drunkenness(self, drunkenness):
@@ -106,3 +117,4 @@ class Player:
     def drink(self):
         self.increase_drunkenness_random()
         self.increase_happiness_random()
+        return "You drink."
