@@ -7,7 +7,7 @@ from gameparser import *
 import newplayer
 import ring_of_fire
 
-player = False
+player = newplayer.Player()
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -191,6 +191,10 @@ def print_menu(exits, room_items, inv_items):
 
     """
     print("You can:")
+    print("DRINK")
+    if player.smoker:
+        print("SMOKE")
+
     # Iterate over available exits
     for direction in exits:
         # Print the exit name and where it leads to
@@ -266,6 +270,16 @@ def execute_drop(item_id):
     else:
         print("You cannot drop that.")
 
+def execute_drink(player):
+    player.drink()
+    print("Your drunkenness is now {0}".format(player.drunkenness))
+
+def execute_smoke(player):
+    print(player.smoke())
+    print("You have {0} cigarettes left.".format(player.cig_left))
+
+def execute_eval(cmd):
+    print(eval(cmd))
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -295,6 +309,15 @@ def execute_command(command):
             execute_drop(command[1])
         else:
             print("Drop what?")
+
+    elif command[0] == "drink":
+        execute_drink(player)
+
+    elif command[0] == "smoke":
+        execute_smoke(player)
+
+    elif command[0] == "/eval":
+        execute_eval(" ".join(command[1:]))
 
     else:
         print("This makes no sense.")
@@ -341,9 +364,7 @@ def move(exits, direction):
 # This is the entry point of our program
 def main():
     welcome()
-    print("Drunkenness is now: {0}".format(player.drunkenness))
     ring_of_fire.play_ring_of_fire(player)
-    print("Drunkenness is now: {0}".format(player.drunkenness))
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
@@ -358,10 +379,10 @@ def main():
 
 def welcome():
     print("Welcome to ___name here___ by team 13.")
-    player_name = str(normalise_input(input("What is your name? > ")))
+    player_name = str(input("What is your name? > "))
     player_age = int(input("What is your age? > "))
-    player_gender = str(normalise_input(input("And your gender? > ")))
-    player_smoke = bool(normalise_input(input("Do you smoke? > ")))
+    player_gender = str(input("And your gender? > "))
+    player_smoke = bool(input("Do you smoke? > "))
     global player
     player = newplayer.Player(player_name,player_gender,player_age, player_smoke)
 # Are we being run as a script? If so, run main().
