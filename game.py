@@ -7,7 +7,7 @@ import player
 import gametime
 import ring_of_fire
 
-player = newplayer.Player()
+player1 = player.Player()
 timer = gametime.GameTime()
 
 def list_of_items(items):
@@ -62,7 +62,7 @@ def print_inventory_items(items):
     manner similar to print_room_items(). The only difference is in formatting:
     print "You have ..." instead of "There is ... here.". For example:
 
-    >>> print_inventory_items(player.inventory)
+    >>> print_inventory_items(player1.inventory)
     You have id card, laptop, money.
     <BLANKLINE>
 
@@ -193,7 +193,7 @@ def print_menu(exits, room_items, inv_items):
     """
     print("You can:")
     print("DRINK")
-    if player.smoker:
+    if player1.smoker:
         print("SMOKE")
 
     # Iterate over available exits
@@ -237,9 +237,8 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    global player
-    if is_valid_exit(player.current_room["exits"], direction):
-        player.current_room = move(player.current_room["exits"], direction)
+    if is_valid_exit(player1.current_room["exits"], direction):
+        player1.current_room = move(player1.current_room["exits"], direction)
     else:
         print("You cannot go there.")
 
@@ -250,10 +249,9 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    global player
-    if any(d['id'] == item_id for d in player.current_room["items"]):
-        player.inventory.extend([item for item in player.current_room["items"] if item.get('id') == item_id])
-        player.current_room["items"][:] = [item for item in player.current_room["items"] if item.get('id') != item_id]
+    if any(d['id'] == item_id for d in player1.current_room["items"]):
+        player1.inventory.extend([item for item in player1.current_room["items"] if item.get('id') == item_id])
+        player1.current_room["items"][:] = [item for item in player1.current_room["items"] if item.get('id') != item_id]
     #current_room["items"].append(item_id)
     else:
         print("You cannot take that.")
@@ -264,20 +262,19 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
-    
-    if any(d['id'] == item_id for d in player.inventory):
-        player.current_room["items"].extend([item for item in player.inventory if item.get('id') == item_id])
-        player.inventory[:] = [item for item in player.inventory if item.get('id') != item_id]
+    if any(d['id'] == item_id for d in player1.inventory):
+        player1.current_room["items"].extend([item for item in player1.inventory if item.get('id') == item_id])
+        player1.inventory[:] = [item for item in player1.inventory if item.get('id') != item_id]
     #current_room["items"].append(item_id)
     else:
         print("You cannot drop that.")
 
 def execute_drink(player):
-    player.drink()
+    player1.drink()
     print("Your drunkenness is now {0}".format(player.drunkenness))
 
 def execute_smoke(player):
-    print(player.smoke())
+    print(player1.smoke())
     print("You have {0} cigarettes left.".format(player.cig_left))
 
 def execute_eval(cmd):
@@ -290,7 +287,6 @@ def execute_command(command):
     execute_take, or execute_drop, supplying the second word as the argument.
 
     """
-
     if 0 == len(command):
         return
 
@@ -313,10 +309,10 @@ def execute_command(command):
             print("Drop what?")
 
     elif command[0] == "drink":
-        execute_drink(player)
+        execute_drink(player1)
 
     elif command[0] == "smoke":
-        execute_smoke(player)
+        execute_smoke(player1)
 
     elif command[0] == "/eval":
         execute_eval(" ".join(command[1:]))
@@ -366,15 +362,15 @@ def move(exits, direction):
 # This is the entry point of our program
 def main():
     welcome()
-    ring_of_fire.play_ring_of_fire(player, timer)
+    ring_of_fire.play_ring_of_fire(player1, timer)
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
-        print_room(player.current_room)
-        print_inventory_items(player.inventory)
+        print_room(player1.current_room)
+        print_inventory_items(player1.inventory)
 
         # Show the menu with possible actions and ask the player
-        command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
+        command = menu(player1.current_room["exits"], player1.current_room["items"], player1.inventory)
 
         # Execute the player's command
         execute_command(command)
@@ -385,8 +381,8 @@ def welcome():
     player_age = int(input("What is your age? > "))
     player_gender = str(input("And your gender? > "))
     player_smoke = bool(input("Do you smoke? > "))
-    global player
-    player = newplayer.Player(player_name,player_gender,player_age, player_smoke)
+    global player1
+    player1 = player.Player(player_name,player_gender,player_age, player_smoke)
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
 # See https://docs.python.org/3.4/library/__main__.html for explanation
