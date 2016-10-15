@@ -12,7 +12,7 @@ def play_ring_of_fire(player):
     #name = input(">>> ")
     print("\n")
     #TEST LINE
-    print("Your name is: {0}, you are {1}.".format(player.name, player.gender))
+    print("Your name is: {0}, you are {1}.".format(str(player.name), str(player.gender)))
     #print("What is your gender? (m/f)")
     #gender = input(">>> ")
     #while int(gen) == 0:
@@ -78,7 +78,7 @@ def play_ring_of_fire(player):
                 player.drink()
             # 4 (works)
             elif int(card) == 4:
-                if int(gen) == 2:
+                if player.gender == "Female":
                     print("4: Whores! Take a drink")
                     inv["turns"] = inv["turns"] + 1
                     player.drink()
@@ -117,15 +117,15 @@ def play_ring_of_fire(player):
             # 8 (broken)
             elif int(card) == 8:
                 choice = input("8: Mate! Pick someone else to drink with.")
-                for value in players.items():
-                    while int(choose) == 0:
-                        if str(choice) == value:
-                            print(value, "took a drink")
-                            choose = 1
-                            inv["turns"] = inv["turns"] + 1
-                            player.drink()
-                        else:
-                            print("who?")
+                #for value in players.items():
+                #    while int(choose) == 0:
+                #        if str(choice) == value:
+                #            print(value, "took a drink")
+                #            choose = 1
+                #            inv["turns"] = inv["turns"] + 1
+                #            player.drink()
+                #        else:
+                #            print("who?")
             # 9 (uncompleted)
             elif int(card) == 9:
                 print("")
