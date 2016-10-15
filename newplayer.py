@@ -41,7 +41,7 @@ class Player:
 
     @property
     def drunkenness(self):
-        return round(self.__drunkenness,1)
+        return round(self.__drunkenness, 1)
 
     @drunkenness.setter
     def drunkenness(self, drunkenness):
