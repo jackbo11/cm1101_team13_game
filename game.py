@@ -380,7 +380,7 @@ def welcome():
     player_name = str(input("What is your name? > "))
     player_age = int(input("What is your age? > "))
     player_gender = str(input("And your gender? > "))
-    player_smoke = bool(input("Do you smoke? > "))
+    player_smoke = input("Do you smoke? > ")
     global player1
     player1 = player.Player(player_name,player_gender,player_age, player_smoke)
 # Are we being run as a script? If so, run main().

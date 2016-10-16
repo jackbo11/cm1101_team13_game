@@ -4,11 +4,11 @@ import items
 
 
 class Player:
-    def __init__(self, name="Player", gender="Male", age=18, smoker=False):
+    def __init__(self, name="Player", gender="Male", age=18, smoker="no"):
         self.name = name.title()
         self.gender = self.__determine_gender(gender)
         self.age = age
-        self.smoker = bool(smoker)
+        self.smoker = self.__determine_smoker(smoker)
         self.inventory = [items.item_id, items.item_driving_license, items.item_playing_cards, items.item_money]
         self.current_room = map.rooms["Talybont"]
         self.__money = 30.0
@@ -29,6 +29,14 @@ class Player:
                 return "Female"
         else:
             return "Unknown"
+
+    @staticmethod
+    def __determine_smoker(smoker_to_determine):
+        smoker_to_determine = smoker_to_determine.lower()
+        if smoker_to_determine == "yes" or smoker_to_determine == "true":
+            return True
+        else:
+            return False
 
     @property
     def money(self):
