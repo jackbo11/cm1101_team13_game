@@ -49,7 +49,7 @@ class Player:
         elif money < 0.0:
             self.__money = 0.0
         else:
-            self.money = money
+            self.__money = money
 
     @property
     def drunkenness(self):
@@ -130,3 +130,6 @@ class Player:
         self.increase_drunkenness_random()
         self.increase_happiness_random()
         return "You drink."
+
+    def pay(self, amount):
+        self.money = self.money - amount

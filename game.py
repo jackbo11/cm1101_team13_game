@@ -10,6 +10,7 @@ import ring_of_fire
 player1 = player.Player()
 timer = gametime.GameTime()
 
+
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
     returns a comma-separated list of item names (as a string). For example:
@@ -28,7 +29,6 @@ def list_of_items(items):
 
     """
     return ", ".join(str(item["name"]) for item in items)
-
 
 
 def print_room_items(room):
@@ -129,6 +129,7 @@ def print_room(room):
     # COMPLETE ME!
     #
     print_room_items(room)
+
 
 def exit_leads_to(exits, direction):
     """This function takes a dictionary of exits and a direction (a particular
@@ -237,6 +238,12 @@ def add_time_cost(room, direction):
         timer.add_minutes(time_to_add)
 
 
+def add_money_cost(room, direction):
+    if "money_cost" in room:
+        money_to_pay = room["money_cost"][direction]
+        player1.pay(money_to_pay)
+
+
 def execute_go(direction):
     """This function, given the direction (e.g. "south") updates the current room
     to reflect the movement of the player if the direction is a valid exit
@@ -245,6 +252,7 @@ def execute_go(direction):
     """
     if is_valid_exit(player1.current_room["exits"], direction):
         add_time_cost(player1.current_room, direction)
+        add_money_cost(player1.current_room, direction)
         player1.current_room = move(player1.current_room["exits"], direction)
     else:
         print("You cannot go there.")

@@ -4,11 +4,11 @@ room_outside = {
     "name": "Outside",
 
     "description":
-    """You are waiting outside in a masssive queue. You know
+    """You are waiting outside in a massive queue. You know
     tonight will be good. """,
 
-    "exits": {"south": "Dancefloor", "east": "Food"},
-    "time_cost": {"south": 2, "east": 10},
+    "exits": {"south": "Dancefloor", "east": "Food", "north": "Taxi"},
+    "time_cost": {"south": 2, "east": 10, "north": 2},
     "items": []
 }
 
@@ -144,6 +144,7 @@ room_taxi = {
 
     "exits": {"south": "Outside", "north": "Dancefloor"},
     "time_cost": {"south": 2, "north": 10},
+    "money_cost": {"south": 12, "north": 12},
     "items": []
 }
 
