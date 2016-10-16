@@ -15,8 +15,8 @@ def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
     returns a comma-separated list of item names (as a string). For example:
 
-    >>> list_of_items([item_pen, item_handbook])
-    'a pen, a student handbook'
+    >>> list_of_items([item_driving_license, item_id])
+    'driving license, id card'
 
     >>> list_of_items([item_id])
     'id card'
@@ -24,8 +24,8 @@ def list_of_items(items):
     >>> list_of_items([])
     ''
 
-    >>> list_of_items([item_money, item_handbook, item_laptop])
-    'money, a student handbook, laptop'
+    >>> list_of_items([item_money, item_drink, item_wine])
+    'money, a drink, a bottle of wine'
 
     """
     return ", ".join(str(item["name"]) for item in items)
@@ -267,7 +267,6 @@ def execute_take(item_id):
     if any(d['id'] == item_id for d in player1.current_room["items"]):
         player1.inventory.extend([item for item in player1.current_room["items"] if item.get('id') == item_id])
         player1.current_room["items"][:] = [item for item in player1.current_room["items"] if item.get('id') != item_id]
-    #current_room["items"].append(item_id)
     else:
         print("You cannot take that.")
 
@@ -280,20 +279,23 @@ def execute_drop(item_id):
     if any(d['id'] == item_id for d in player1.inventory):
         player1.current_room["items"].extend([item for item in player1.inventory if item.get('id') == item_id])
         player1.inventory[:] = [item for item in player1.inventory if item.get('id') != item_id]
-    #current_room["items"].append(item_id)
     else:
         print("You cannot drop that.")
+
 
 def execute_drink(player):
     player1.drink()
     print("Your drunkenness is now {0}".format(player.drunkenness))
 
+
 def execute_smoke(player):
     print(player1.smoke())
     print("You have {0} cigarettes left.".format(player.cig_left))
 
+
 def execute_eval(cmd):
     print(eval(cmd))
+
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -390,6 +392,7 @@ def main():
         # Execute the player's command
         execute_command(command)
 
+
 def welcome():
     print("Welcome to ___name here___ by team 13.")
     player_name = str(input("What is your name? > "))
@@ -397,7 +400,9 @@ def welcome():
     player_gender = str(input("And your gender? > "))
     player_smoke = input("Do you smoke? > ")
     global player1
-    player1 = player.Player(player_name,player_gender,player_age, player_smoke)
+    player1 = player.Player(player_name, player_gender, player_age, player_smoke)
+
+
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
 # See https://docs.python.org/3.4/library/__main__.html for explanation
