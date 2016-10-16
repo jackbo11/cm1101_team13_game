@@ -8,7 +8,7 @@ room_outside = {
     tonight will be good. """,
 
     "exits": {"south": "Dancefloor", "east": "Food"},
-
+    "time_cost": {"south": 2, "east": 10},
     "items": []
 }
 
@@ -21,6 +21,7 @@ room. Inside you notice Matt "MJ" John and Simon Jones. They
 ignore you. To the north is the reception.""",
 
     "exits":  {"east": "Dancefloor", "south": "Bar2"},
+    "time_cost": {"east": 2, "south": 10},
 
     "items": [item_drink]
 }
@@ -35,6 +36,7 @@ On the desk you notice a cup of coffee and an empty
 pack of biscuits. The reception is to the west.""",
 
     "exits": {"east": "Balcony", "north": "Bar1"},
+    "time_cost": {"east": 2, "north": 10},
 
     "items": [item_wine]
 }
@@ -48,6 +50,7 @@ You can go south to the COMSC reception, or east to the
 general office.""",
 
     "exits": {"north": "Balcony", "east": "Toilet", "west": "Bar2"},
+    "time_cost": {"north": 8, "east": 7, "west": 11},
 
     "items": [item_wine]
 }
@@ -62,7 +65,7 @@ in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
     "exits": {"west": "Bar3"},
-
+    "time_cost": {"west": 5},
     "items": []
 }
 
@@ -74,7 +77,7 @@ room_balcony = {
     blah blah blah""",
 
     "exits": {"east": "Toilet", "south": "Bar3", "west": "Bar2", "north": "Dancefloor"},
-
+    "time_cost": {"east": 7, "south": 10, "west": 15, "north": 4},
     "items": [item_flower]
 }
 
@@ -89,6 +92,7 @@ in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
     "exits": {"west": "Bar1", "south": "Balcony", "north": "Stage"},
+    "time_cost": {"west": 10, "south": 4, "north": 3},
 
     "items": []
 }
@@ -103,6 +107,7 @@ in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
     "exits": {"north": "Food", "south": "Dancefloor", "west": "Bar1"},
+    "time_cost": {"north": 2, "south": 1, "west": 10},
 
     "items": [item_screen]
 }
@@ -114,6 +119,7 @@ room_food = {
     """You smell the food yum.""",
 
     "exits": {"south": "Stage", "west": "Outside"},
+    "time_cost": {"south": 2, "west": 3},
 
     "items": [item_chips]
 }
@@ -125,6 +131,7 @@ room_taly = {
     """You are in Talybont North having pre drinks.""",
 
     "exits": {"south": "Outside"},
+    "time_cost": {"south": 5},
 
     "items": [item_drink]
 }
@@ -135,8 +142,8 @@ room_taxi = {
     "description":
     """You are in taxi.""",
 
-    "exits": {"south": "Outside"},
-
+    "exits": {"south": "Outside", "north": "Dancefloor"},
+    "time_cost": {"south": 2, "north": 10},
     "items": []
 }
 

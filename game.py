@@ -231,6 +231,12 @@ def is_valid_exit(exits, chosen_exit):
     return chosen_exit in exits
 
 
+def add_time_cost(room, direction):
+    if "time_cost" in room:
+        time_to_add = room["time_cost"][direction]
+        timer.add_minutes(time_to_add)
+
+
 def execute_go(direction):
     """This function, given the direction (e.g. "south") updates the current room
     to reflect the movement of the player if the direction is a valid exit
@@ -238,6 +244,7 @@ def execute_go(direction):
     moving). Otherwise, it prints "You cannot go there."
     """
     if is_valid_exit(player1.current_room["exits"], direction):
+        add_time_cost(player1.current_room, direction)
         player1.current_room = move(player1.current_room["exits"], direction)
     else:
         print("You cannot go there.")
