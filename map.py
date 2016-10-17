@@ -131,7 +131,7 @@ room_taly = {
     """You are in Talybont North having pre drinks.""",
 
     "exits": {"south": "Outside"},
-    "time_cost": {"south": 5},
+    "time_cost": {"south": 20},
 
     "items": [item_drink]
 }
@@ -143,7 +143,7 @@ room_taxi = {
     """You are in taxi.""",
 
     "exits": {"south": "Outside", "north": "Dancefloor"},
-    "time_cost": {"south": 2, "north": 10},
+    "time_cost": {"south": 5, "north": 15},
     "money_cost": {"south": 12, "north": 12},
     "items": []
 }
