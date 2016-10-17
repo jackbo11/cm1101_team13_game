@@ -96,8 +96,8 @@ class Player:
 
     @cig_left.setter
     def cig_left(self, cig_left):
-        if cig_left > 30:
-            self.__cig_left = 30
+        if cig_left > 10:
+            self.__cig_left = 10
         elif cig_left < 0:
             self.__cig_left = 0
         else:
