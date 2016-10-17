@@ -126,10 +126,11 @@ class Player:
         else:
             return "You are a non smoker!"
 
-    def drink(self):
-        self.increase_drunkenness_random()
-        self.increase_happiness_random()
-        self.drink_left -= 1
+    def drink(self, amount=1):
+        for i in range(amount):
+            self.increase_drunkenness_random()
+            self.increase_happiness_random()
+            self.drink_left -= 1
         return "You drink."
 
     def fill_drink(self, amount=5):
