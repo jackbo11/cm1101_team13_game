@@ -42,7 +42,7 @@ def play_ring_of_fire(player1, timer):
 
     # Main loop
     while int(inv["turns"]) < 20: # Decides the maximum number of turns
-
+        timer.add_minutes(4)
         # YOUR TURN
         if int(inv["turns"]) % 5 == 0:
             print("\n")
