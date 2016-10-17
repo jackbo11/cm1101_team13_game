@@ -301,6 +301,10 @@ def execute_stats():
     print(player1.get_stats())
 
 
+def execute_clock():
+    print("The time is now {0}".format(str(timer.time)))
+
+
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
@@ -340,6 +344,9 @@ def execute_command(command):
 
     elif command[0] == "stats":
         execute_stats()
+
+    elif command[0] == "time" or command[0] == "clock":
+        execute_clock()
 
     else:
         print("This makes no sense.")
