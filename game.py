@@ -193,6 +193,8 @@ def print_menu(exits, room_items, inv_items):
 
     """
     print("You can:")
+    print("TIME")
+    print("STATS")
     print("DRINK")
     if player1.smoker:
         print("SMOKE")
