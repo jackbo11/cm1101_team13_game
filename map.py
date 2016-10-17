@@ -107,7 +107,7 @@ in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
     "exits": {"north": "Food", "south": "Dancefloor", "west": "Bar1"},
-    "time_cost": {"north": 2, "south": 1, "west": 10},
+    "time_cost": {"north": 5, "south": 1, "west": 10},
 
     "items": [item_screen]
 }
@@ -119,7 +119,7 @@ room_food = {
     """You smell the food yum.""",
 
     "exits": {"south": "Stage", "west": "Outside"},
-    "time_cost": {"south": 2, "west": 3},
+    "time_cost": {"south": 2, "west": 15},
 
     "items": [item_chips]
 }
