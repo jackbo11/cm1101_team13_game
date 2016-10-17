@@ -81,3 +81,34 @@ def normalise_input(user_input):
         # COMPLETE ME!
         #
         return filter_words(no_punct.split(), skip_words)
+
+def remove_spaces(text):
+    """This function is used to remove leading and trailing spaces from a string.
+    It takes a string and returns a new string with does not have leading and
+    trailing spaces. For example:
+    >>> remove_spaces("  Hello!  ")
+    'Hello!'
+    >>> remove_spaces("  Python  is  easy!   ")
+    'Python  is  easy!'
+    >>> remove_spaces("Python is easy!")
+    'Python is easy!'
+    >>> remove_spaces("")
+    ''
+    >>> remove_spaces("   ")
+    ''
+    """
+    return text.strip()
+
+
+def normalise_string(user_input):
+    """This function removes all punctuation, leading and trailing
+    spaces from a string, and converts the string to lower case.
+    For example:
+    >>> normalise_input("  Go south! ")
+    'go south'
+    >>> normalise_input("!!! tAkE,. LAmp!?! ")
+    'take lamp'
+    >>> normalise_input("HELP!!!!!!!")
+    'help'
+    """
+    return remove_spaces(remove_punct(user_input.lower()))
