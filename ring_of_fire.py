@@ -626,6 +626,6 @@ def play_ring_of_fire(player1, timer):
             chance = 0
             input("")
 
-    print("Player's drunkness got to " + player1.drunkenness)
+    print("Player's drunkenness got to " + str(player1.drunkenness))
     input("")
     input("")

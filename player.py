@@ -32,9 +32,12 @@ class Player:
 
     @staticmethod
     def __determine_smoker(smoker_to_determine):
-        smoker_to_determine = smoker_to_determine.lower()
-        if smoker_to_determine[0] == "y" or smoker_to_determine == "true":
-            return True
+        if smoker_to_determine:
+            smoker_to_determine = smoker_to_determine.lower()
+            if smoker_to_determine[0] == "y" or smoker_to_determine == "true":
+                return True
+            else:
+                return False
         else:
             return False
 
@@ -138,3 +141,20 @@ class Player:
 
     def pay(self, amount):
         self.money = self.money - amount
+
+    def get_stats(self):
+        return """
+        -----------------------------------
+        Stats for {0}
+        -----------------------------------
+        Gender: {1}
+        Age: {2}
+        Happiness: {3}/10
+        Drunkenness: {4}/10
+        Drink left: {5}/5
+        Money: £{6}
+        Cigarettes left {7}/10
+        ====================================
+
+        """.format(self.name, self.gender, self.age, self.happiness, self.drunkenness, self.drink_left, self.money,
+                   self.cig_left)

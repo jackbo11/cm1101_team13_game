@@ -297,6 +297,10 @@ def execute_eval(cmd):
     print(eval(cmd))
 
 
+def execute_stats():
+    print(player1.get_stats())
+
+
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
@@ -333,6 +337,9 @@ def execute_command(command):
 
     elif command[0] == "/eval":
         execute_eval(" ".join(command[1:]))
+
+    elif command[0] == "stats":
+        execute_stats()
 
     else:
         print("This makes no sense.")
