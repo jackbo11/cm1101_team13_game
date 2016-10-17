@@ -13,6 +13,10 @@ class SoundPlayer:
         winsound.PlaySound("SystemAsterisk", winsound.SND_ALIAS)
 
     @staticmethod
+    def play_wav(filename):
+        winsound.PlaySound(filename, winsound.SND_FILENAME)
+
+    @staticmethod
     def __note_to_frequency(note):
         return sounds.note_frequency_mapping[note]
 
