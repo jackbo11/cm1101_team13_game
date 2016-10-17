@@ -83,8 +83,8 @@ class Player:
 
     @happiness.setter
     def happiness(self, happiness):
-        if happiness > 5:
-            self.__happiness = 5
+        if happiness > 10:
+            self.__happiness = 10
         elif happiness < 0:
             self.__happiness = 0
         else:
