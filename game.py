@@ -6,6 +6,8 @@ from gameparser import *
 import player
 import gametime
 import ring_of_fire
+import sounds
+from soundplayer import SoundPlayer
 
 player1 = player.Player()
 timer = gametime.GameTime()
@@ -307,6 +309,10 @@ def execute_clock():
     print("The time is now {0}".format(str(timer.time)))
 
 
+def execute_sound_test():
+    SoundPlayer.play_beep(sounds.scales)
+
+
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
@@ -346,6 +352,9 @@ def execute_command(command):
 
     elif command[0] == "stats":
         execute_stats()
+
+    elif command[0] == "/soundtest":
+        execute_sound_test()
 
     elif command[0] == "time" or command[0] == "clock":
         execute_clock()
