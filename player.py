@@ -33,7 +33,7 @@ class Player:
     @staticmethod
     def __determine_smoker(smoker_to_determine):
         smoker_to_determine = smoker_to_determine.lower()
-        if smoker_to_determine == "yes" or smoker_to_determine == "true":
+        if smoker_to_determine[0] == "y" or smoker_to_determine == "true":
             return True
         else:
             return False
