@@ -129,7 +129,11 @@ class Player:
     def drink(self):
         self.increase_drunkenness_random()
         self.increase_happiness_random()
+        self.drink_left -= 1
         return "You drink."
+
+    def fill_drink(self, amount=5):
+        self.drink_left += amount
 
     def pay(self, amount):
         self.money = self.money - amount
