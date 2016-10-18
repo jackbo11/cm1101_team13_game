@@ -102,7 +102,7 @@ room_food = {
     "exits": {"south": "Dancefloor"},
     "time_cost": {"south": 4},
 
-    "items": [item_burger]
+    "items": []
 }
 
 room_taly = {
