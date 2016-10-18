@@ -213,7 +213,7 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE {0} to take {1}.".format(room_item["id"].upper(), room_item["name"]))
     for inv_item in inv_items:
         print("DROP {0} to drop {1}.".format(inv_item["id"].upper(), inv_item["name"]))
-
+    print("The time is now {0}, you have £{1}.".format(timer.time, player1.money))
     print("What do you want to do?")
 
 
