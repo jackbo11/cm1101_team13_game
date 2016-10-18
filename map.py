@@ -125,7 +125,7 @@ room_taxi = {
 
     "exits": {"south": "Outside", "north": "Talybont"},
     "time_cost": {"south": 15, "north": 15},
-    "money_cost": {"south": 12, "north": 12},
+    "money_cost": {"south": 8, "north": 8},
     "items": []
 }
 
