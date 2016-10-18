@@ -501,15 +501,17 @@ def main():
 
 def welcome():
     print("Welcome to SU-rvival by team 13.")
-    try:
-        player_name = str(input("What is your name? > "))
-        player_age = int(input("What is your age? > "))
-        player_gender = str(input("And your gender? > "))
-        player_smoke = input("Do you smoke? > ")
-        global player1
-        player1 = player.Player(player_name, player_gender, player_age, player_smoke)
-    except ValueError:
-        print("An invalid value was entered. Please try again.")
+    successful_new_player = False
+    while successful_new_player == False:
+        try:
+            player_name = str(input("What is your name? > "))
+            player_age = int(input("What is your age? > "))
+            player_gender = str(input("And your gender? > "))
+            player_smoke = input("Do you smoke? > ")
+            global player1
+            player1 = player.Player(player_name, player_gender, player_age, player_smoke)
+        except ValueError:
+            print("An invalid value was entered. Please try again.")
 
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
