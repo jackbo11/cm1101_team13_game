@@ -82,6 +82,15 @@ def print_consumables(items):
         print("You can get {0}.\n".format(list_of_items(items)))
 
 
+def apply_consumable_effect(consumable, player):
+    if "drink_left_effect" in consumable:
+        player.fill_drink(consumable["drink_left_effect"])
+    if "happiness_effect" in consumable:
+        player.increase_happiness(consumable["happiness_effect"])
+    if "drunkenness_effect" in consumable:
+        player.increase_drunkenness(consumable["drunkenness_effect"])
+
+
 def print_room(room):
     """This function takes a room as an input and nicely displays its name
     and description. The room argument is a dictionary with entries "name",
