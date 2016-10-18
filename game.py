@@ -510,6 +510,7 @@ def welcome():
             player_smoke = input("Do you smoke? > ")
             global player1
             player1 = player.Player(player_name, player_gender, player_age, player_smoke)
+            successful_new_player = True
         except ValueError:
             print("An invalid value was entered. Please try again.")
 
