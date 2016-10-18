@@ -225,8 +225,6 @@ def print_menu(exits, room_items, inv_items):
     print("DRINK")
     if player1.smoker:
         print("SMOKE")
-    events.normal_things_happen(player1)
-    events.bad_things_happen(player1)
     # Iterate over available exits
     for direction in exits:
         # Print the exit name and where it leads to
@@ -407,6 +405,10 @@ def menu(exits, room_items, inv_items):
     """
 
     # Display menu
+    print()
+    events.normal_things_happen(player1)
+    events.bad_things_happen(player1)
+    print()
     print_menu(exits, room_items, inv_items)
 
     # Read player's input
