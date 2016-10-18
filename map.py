@@ -123,8 +123,8 @@ room_taly = {
     "exits": {"south": "Taxi"},
     "time_cost": {"south": 2},
 
-    "items": [],
-    "consumables": [item_keys, item_driving_license, item_money, item_id]
+    "items": [item_keys, item_driving_license, item_money, item_id],
+    "consumables": []
 }
 
 room_taxi = {
