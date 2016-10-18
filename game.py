@@ -225,7 +225,8 @@ def print_menu(exits, room_items, inv_items):
     print("DRINK")
     if player1.smoker:
         print("SMOKE")
-
+    events.normal_things_happen(player1)
+    events.bad_things_happen(player1)
     # Iterate over available exits
     for direction in exits:
         # Print the exit name and where it leads to
@@ -494,8 +495,6 @@ def main():
         print_inventory_items(player1.inventory)
         # Show the menu with possible actions and ask the player
         command = menu(player1.current_room["exits"], player1.current_room["items"], player1.inventory)
-        events.normal_things_happen(player1)
-        events.bad_things_happen(player1)
         # Execute the player's command
         execute_command(command)
 
