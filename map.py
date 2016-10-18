@@ -1,4 +1,5 @@
 from items import *
+import consumables
 
 room_outside = {
     "name": "Outside",
@@ -9,7 +10,8 @@ room_outside = {
 
     "exits": {"southeast": "Dancefloor", "north": "Taxi"},
     "time_cost": {"southeast": 3, "north": 2},
-    "items": []
+    "items": [],
+    "consumables": []
 }
 
 room_bar1 = {
@@ -23,7 +25,8 @@ room_bar1 = {
     "exits":  {"east": "Dancefloor"},
     "time_cost": {"east": 2},
 
-    "items": []
+    "items": [],
+    "consumables": [consumables.drink_beer, consumables.drink_single, consumables.drink_water]
 }
 
 room_bar2 = {
@@ -37,7 +40,8 @@ room_bar2 = {
     "exits": {"northeast": "Dancefloor", "southeast": "Balcony"},
     "time_cost": {"northeast": 7, "southeast": 4},
 
-    "items": []
+    "items": [],
+    "consumables": [consumables.drink_VK, consumables.drink_single, consumables.drink_double, consumables.drink_water]
 }
 
 room_bar3 = {
@@ -51,7 +55,8 @@ room_bar3 = {
     "exits": {"north": "Balcony"},
     "time_cost": {"north": 5,},
 
-    "items": []
+    "items": [],
+    "consumables": [consumables.drink_water, consumables.drink_VK, consumables.drink_beer]
 }
 
 room_toilet = {
@@ -62,7 +67,8 @@ room_toilet = {
 
     "exits": {"west": "Dancefloor"},
     "time_cost": {"west": 7},
-    "items": []
+    "items": [],
+    "consumables": []
 }
 
 room_balcony = {
@@ -74,7 +80,8 @@ room_balcony = {
 
     "exits": {"northwest": "Bar2", "south": "Bar3", "north": "Dancefloor"},
     "time_cost": {"northwest": 4, "south": 5, "north": 4},
-    "items": []
+    "items": [],
+    "consumables": []
 }
 
 
@@ -90,7 +97,8 @@ room_dancefloor = {
     "exits": {"west": "Bar1", "south": "Balcony", "northwest": "Outside", "north": "Food", "southwest": "Bar2", "east": "Toilet"},
     "time_cost": {"west": 2, "south": 4, "northwest": 3, "north": 4, "southwest": 7, "east": 7},
 
-    "items": []
+    "items": [],
+    "consumables": []
 }
 
 room_food = {
@@ -102,7 +110,8 @@ room_food = {
     "exits": {"south": "Dancefloor"},
     "time_cost": {"south": 4},
 
-    "items": []
+    "items": [],
+    "consumables": [consumables.food_burger]
 }
 
 room_taly = {
@@ -114,7 +123,8 @@ room_taly = {
     "exits": {"south": "Taxi"},
     "time_cost": {"south": 2},
 
-    "items": []
+    "items": [],
+    "consumables": []
 }
 
 room_taxi = {
@@ -126,7 +136,8 @@ room_taxi = {
     "exits": {"south": "Outside", "north": "Talybont"},
     "time_cost": {"south": 15, "north": 15},
     "money_cost": {"south": 8, "north": 8},
-    "items": []
+    "items": [],
+    "consumables": []
 }
 
 rooms = {
