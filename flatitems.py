@@ -18,4 +18,4 @@ flat_item_predrink = {
 }
 flat_item_clowndetector = {
 	"name": "clown detector"
-	}
+}
