@@ -9,9 +9,6 @@ drink_single = {
 
     "price": 2}
 
-
-
-
 drink_double = {
     "id": "double",
 
@@ -23,8 +20,6 @@ drink_double = {
 
     "price": 3
 }
-
-
 
 drink_water = {
     "id": "single",
@@ -39,9 +34,6 @@ drink_water = {
 
 }
 
-
-
-
 drink_beer = {
     "id": "beer",
 
@@ -53,9 +45,6 @@ drink_beer = {
 
     "price": 3
 }
-
-
-
 
 drink_VK = {
     "id": "VK",
