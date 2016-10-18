@@ -18,8 +18,9 @@ room_bar1 = {
     "name": "Bar1",
 
     "description":
-    """You are now in bar1. Do you want some drinks?
-    A single for £2 and water is free. 
+    """You are now in Bar 1. Faced with a mass of people all calling for the bartender to serve them. 
+    Do you want to wait for some drinks?
+    A single for £2, a beer for £3 and water is free. 
     You can go east to the Dancefloor.""",
 
     "exits":  {"east": "Dancefloor"},
@@ -33,7 +34,8 @@ room_bar2 = {
     "name": "Bar2",
 
     "description":
-    """You are now in bar2. Do you want some drinks?
+    """You are now in Bar 2. Slightly quieter than the other two bars but with less staff available, making the queue still seem never-ending!
+    Do you want some drinks?
     A beer for £3, a double for £5 and water is free. 
     You can go northeast to the Dancefloor or southeast to the Balcony.""",
 
@@ -48,7 +50,8 @@ room_bar3 = {
     "name": "Bar3",
 
     "description":
-    """You are now in bar3. Do you want some drinks?
+    """You are now in Bar 3. This is the bar to be at for those renowned VKs, the SU classic drink.
+    Do you want some drinks?
     A beer for £3, a VK for £3, a single for £2 and water is free. 
     You can go north to the Balcony to keep your mind awake.""",
 
@@ -92,7 +95,7 @@ room_dancefloor = {
     """You are dancing on the dancefloor with your friends. 
     You feel very hyper and excited after dancing.
     Where would you like to go after dancing? 
-    You can go northwest to the outside, west to the Bar1, southwest to the bar2, south to the Balcony, east to the toliet or north to the food. """,
+    You can go northwest to the outside, west to the Bar1, southwest to the Bar2, south to the Balcony, east to the toliet or north to the food. """,
 
     "exits": {"west": "Bar1", "south": "Balcony", "northwest": "Outside", "north": "Food", "southwest": "Bar2", "east": "Toilet"},
     "time_cost": {"west": 2, "south": 4, "northwest": 3, "north": 4, "southwest": 7, "east": 7},
