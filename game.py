@@ -5,7 +5,7 @@ from items import *
 from gameparser import *
 import player
 import gametime
-import ring_of_fire
+#import ring_of_fire
 import sounds
 from soundplayer import SoundPlayer
 
@@ -404,7 +404,7 @@ def move(exits, direction):
 # This is the entry point of our program
 def main():
     welcome()
-    ring_of_fire.play_ring_of_fire(player1, timer)
+    #ring_of_fire.play_ring_of_fire(player1, timer)
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)

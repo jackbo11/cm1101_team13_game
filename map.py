@@ -5,10 +5,10 @@ room_outside = {
 
     "description":
     """You are now staying outside the SU. Where would you like to go?
-    You can go south-east to the Dancefloor or north to take taxi to go Talybont.""",
+    You can go southeast to the Dancefloor or north to take taxi to go Talybont.""",
 
-    "exits": {"south-east": "Dancefloor", "north": "Taxi"},
-    "time_cost": {"south-east": 3, "north": 2},
+    "exits": {"southeast": "Dancefloor", "north": "Taxi"},
+    "time_cost": {"southeast": 3, "north": 2},
     "items": []
 }
 
@@ -32,10 +32,10 @@ room_bar2 = {
     "description":
     """You are now in bar2. Do you want some drinks?
     A beer for £3, a double for £5 and water is free. 
-    You can go north-east to the Dancefloor or south-east to the Balcony.""",
+    You can go northeast to the Dancefloor or southeast to the Balcony.""",
 
-    "exits": {"north-east": "Dancefloor", "south-east": "Balcony"},
-    "time_cost": {"north-east": 7, "south-east": 4},
+    "exits": {"northeast": "Dancefloor", "southeast": "Balcony"},
+    "time_cost": {"northeast": 7, "southeast": 4},
 
     "items": []
 }
@@ -70,10 +70,10 @@ room_balcony = {
 
     "description":
     """You are standing in the cool breeze of the wind and feel better.
-    You can go north-west to the Bar2, south to the Bar3 or north to the Dancefloor. """,
+    You can go northwest to the Bar2, south to the Bar3 or north to the Dancefloor. """,
 
-    "exits": {"north-west": "Bar2", "south": "Bar3", "north": "Dancefloor"},
-    "time_cost": {"north-west": 4, "south": 5, "north": 4},
+    "exits": {"northwest": "Bar2", "south": "Bar3", "north": "Dancefloor"},
+    "time_cost": {"northwest": 4, "south": 5, "north": 4},
     "items": []
 }
 
@@ -85,10 +85,10 @@ room_dancefloor = {
     """You are dancing on the dancefloor with your friends. 
     You feel very hyper and excited after dancing.
     Where would you like to go after dancing? 
-    You can go north-west to the outside, west to the Bar1, south-west to the bar2, south to the Balcony, east to the toliet or north to the food. """,
+    You can go northwest to the outside, west to the Bar1, southwest to the bar2, south to the Balcony, east to the toliet or north to the food. """,
 
-    "exits": {"west": "Bar1", "south": "Balcony", "north-west": "Outside", "north": "Food", "south-west": "Bar2", "east": "Toliet"},
-    "time_cost": {"west": 2, "south": 4, "north-west": 3, "north": 4, "south-west": 7, "east": 7},
+    "exits": {"west": "Bar1", "south": "Balcony", "northwest": "Outside", "north": "Food", "southwest": "Bar2", "east": "Toilet"},
+    "time_cost": {"west": 2, "south": 4, "northwest": 3, "north": 4, "southwest": 7, "east": 7},
 
     "items": []
 }
