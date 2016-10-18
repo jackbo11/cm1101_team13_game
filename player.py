@@ -9,7 +9,7 @@ class Player:
         self.gender = self.__determine_gender(gender)
         self.age = age
         self.smoker = self.__determine_smoker(smoker)
-        self.inventory = [items.item_id, items.item_driving_license, items.item_playing_cards, items.item_money]
+        self.inventory = []
         self.current_room = map.rooms["Talybont"]
         self.__money = 30.0
         self.__drunkenness = 0
