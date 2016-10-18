@@ -42,6 +42,15 @@ item_drink = {
     "description": "A drink."
 }
 
+item_keys = {
+    "id": "keys",
+
+    "name": "keys",
+
+    "description":
+        "You need this to get into your home after the club."
+}
+
 item_chips = {
     "id": "chips",
     

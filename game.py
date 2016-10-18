@@ -8,6 +8,7 @@ import gametime
 #import ring_of_fire
 import sounds
 from soundplayer import SoundPlayer
+import events
 
 player1 = player.Player()
 timer = gametime.GameTime()
@@ -433,6 +434,54 @@ def move(exits, direction):
     return rooms[exits[direction]]
 
 
+def take_inventory_items(items):
+
+    print()
+
+    for room_item in items:
+        print("TAKE {0} to take {1}.".format(room_item["id"].upper(), room_item["name"]))
+
+    user_input = input("> ")
+
+    normalised_user_input = normalise_input(user_input)
+
+    return normalised_user_input
+
+def take_initial_items():
+    while True:
+        if player1.current_room["items"]:
+            print("There are {0}.\n".format(list_of_items(
+                player1.current_room["items"])) + "in your room, you might need some of them in the Student Union")
+            print("test")
+        command = take_inventory_items(player1.current_room["items"])
+        execute_command(command)
+        if len(player1.current_room["items"]) > 1:
+
+            for x in range(4):
+                if item_id not in player1.inventory:
+                    print("Don't you need your Id card to enter the club?")
+                    command = take_inventory_items(player1.current_room["items"])
+                    execute_command(command)
+                elif item_money not in player1.inventory:
+                    print("Don't you need some cash to buy some drinks or to get a ride home?")
+                    command = take_inventory_items(player1.current_room["items"])
+                    execute_command(command)
+                elif item_driving_license not in player1.inventory:
+                    print("wait, what about your driving license?")
+                    command = take_inventory_items(player1.current_room["items"])
+                    execute_command(command)
+                elif item_keys not in player1.inventory:
+                    print("hmmmm, you are going to leave without your keys?")
+                    command = take_inventory_items(player1.current_room["items"])
+                    execute_command(command)
+
+            else:
+                break
+
+        elif len(player1.current_room["items"]) == 1 and item_drink in player1.inventory:
+            break
+
+
 # This is the entry point of our program
 def main():
     welcome()
@@ -442,24 +491,25 @@ def main():
         # Display game status (room description, inventory etc.)
         print_room(player1.current_room)
         print_inventory_items(player1.inventory)
-
-
         # Show the menu with possible actions and ask the player
         command = menu(player1.current_room["exits"], player1.current_room["items"], player1.inventory)
-
+        events.normal_things_happen(player1)
+        events.bad_things_happen(player1)
         # Execute the player's command
         execute_command(command)
 
 
 def welcome():
     print("Welcome to SU-rvival by team 13.")
-    player_name = str(input("What is your name? > "))
-    player_age = int(input("What is your age? > "))
-    player_gender = str(input("And your gender? > "))
-    player_smoke = input("Do you smoke? > ")
-    global player1
-    player1 = player.Player(player_name, player_gender, player_age, player_smoke)
-
+    try:
+        player_name = str(input("What is your name? > "))
+        player_age = int(input("What is your age? > "))
+        player_gender = str(input("And your gender? > "))
+        player_smoke = input("Do you smoke? > ")
+        global player1
+        player1 = player.Player(player_name, player_gender, player_age, player_smoke)
+    except ValueError:
+        print("An invalid value was entered. Please try again.")
 
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
