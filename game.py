@@ -293,8 +293,11 @@ def execute_drink(player):
 
 
 def execute_smoke(player):
-    print(player1.smoke())
-    print("You have {0} cigarettes left.".format(player.cig_left))
+    if player1.smoker:
+        print(player1.smoke())
+        print("You have {0} cigarettes left.".format(player.cig_left))
+    else:
+        print("You cannot smoke as you are a non smoker.")
 
 
 def execute_eval(cmd):
