@@ -485,6 +485,7 @@ def take_initial_items():
 # This is the entry point of our program
 def main():
     welcome()
+    take_initial_items()
     #ring_of_fire.play_ring_of_fire(player1, timer)
     # Main game loop
     while True:
