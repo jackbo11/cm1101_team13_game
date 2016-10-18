@@ -5,7 +5,7 @@ drink_single = {
 
     "description": "balh blah",
 
-    "drunkenness_effect": 3,
+    "drink_left_effect": 3,
 
     "price": 2}
 
@@ -16,7 +16,7 @@ drink_double = {
 
     "description": "balh blah",
 
-    "drunkenness_effect": 5,
+    "drink_left_effect": 5,
 
     "price": 3
 }
@@ -41,7 +41,7 @@ drink_beer = {
 
     "description": "balh blah",
 
-    "drunkenness_effect": 4,
+    "drink_left_effect": 4,
 
     "price": 3
 }
@@ -53,7 +53,7 @@ drink_VK = {
 
     "description": "balh blah",
 
-    "drunkenness_effect": 3,
+    "drink_left_effect": 3,
 
     "price": 3
 }
