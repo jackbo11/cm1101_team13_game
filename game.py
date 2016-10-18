@@ -82,6 +82,9 @@ def print_consumables(items):
         print("You can get {0}.\n".format(list_of_items(items)))
 
 
+def apply_consumable_effect_by_id(consumable, player, room):
+    apply_consumable_effect([item for item in room["consumables"] if item.get('id') == consumable][0], player)
+
 def apply_consumable_effect(consumable, player):
     if "drink_left_effect" in consumable:
         player.fill_drink(consumable["drink_left_effect"])
@@ -89,6 +92,8 @@ def apply_consumable_effect(consumable, player):
         player.increase_happiness(consumable["happiness_effect"])
     if "drunkenness_effect" in consumable:
         player.increase_drunkenness(consumable["drunkenness_effect"])
+    if "price" in consumable:
+        player.pay(consumable["price"])
 
 
 def print_room(room):
@@ -280,6 +285,8 @@ def execute_go(direction):
     else:
         print("You cannot go there.")
 
+def execute_get(consumable, player, room):
+    apply_consumable_effect_by_id(consumable, player, room)
 
 def execute_take(item_id):
     """This function takes an item_id as an argument and moves this item from the
@@ -380,6 +387,9 @@ def execute_command(command):
 
     elif command[0] == "time" or command[0] == "clock":
         execute_clock()
+
+    elif command[0] == "get":
+        execute_get(command[1], player1, player1.current_room)
 
     else:
         print("This makes no sense.")
