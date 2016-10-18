@@ -23,7 +23,7 @@ room_bar1 = {
     "exits":  {"east": "Dancefloor"},
     "time_cost": {"east": 2},
 
-    "items": [item_single, item_water]
+    "items": []
 }
 
 room_bar2 = {
@@ -37,7 +37,7 @@ room_bar2 = {
     "exits": {"north-east": "Dancefloor", "south-east": "Balcony"},
     "time_cost": {"north-east": 7, "south-east": 4},
 
-    "items": [item_beer, item_double, item_water]
+    "items": []
 }
 
 room_bar3 = {
@@ -51,7 +51,7 @@ room_bar3 = {
     "exits": {"north": "Balcony"},
     "time_cost": {"north": 5,},
 
-    "items": [item_beer, item_VK, item_single, item_water]
+    "items": []
 }
 
 room_toilet = {
