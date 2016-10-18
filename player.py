@@ -131,10 +131,13 @@ class Player:
 
     def drink(self, amount=1):
         for i in range(amount):
-            self.increase_drunkenness_random()
-            self.increase_happiness_random()
-            self.drink_left -= 1
-        return "You drink."
+            if self.drink_left <= 0:
+                return "You have not drink left to drink!"
+            else:
+                self.increase_drunkenness_random()
+                self.increase_happiness_random()
+                self.drink_left -= 1
+                return "You drink."
 
     def fill_drink(self, amount=5):
         self.drink_left += amount
