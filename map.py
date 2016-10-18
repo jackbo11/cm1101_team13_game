@@ -124,7 +124,7 @@ room_taly = {
     "time_cost": {"south": 2},
 
     "items": [],
-    "consumables": []
+    "consumables": [item_keys, item_driving_license, item_money, item_id]
 }
 
 room_taxi = {

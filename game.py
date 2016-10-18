@@ -447,12 +447,12 @@ def take_inventory_items(items):
 
     return normalised_user_input
 
+
 def take_initial_items():
     while True:
         if player1.current_room["items"]:
             print("There are {0}.\n".format(list_of_items(
                 player1.current_room["items"])) + "in your room, you might need some of them in the Student Union")
-            print("test")
         command = take_inventory_items(player1.current_room["items"])
         execute_command(command)
         if len(player1.current_room["items"]) > 1:
