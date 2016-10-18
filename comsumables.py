@@ -3,13 +3,11 @@ drink_single = {
 
     "name": "A single",
 
-    "description": "balh blah"
+    "description": "balh blah",
 
-    "drunkenness_effect": 3
+    "drunkenness_effect": 3,
 
-    "price": 2
-
-}
+    "price": 2}
 
 
 
@@ -19,9 +17,9 @@ drink_double = {
 
     "name": "A double",
 
-    "description": "balh blah"
+    "description": "balh blah",
 
-    "drunkenness_effect": 5
+    "drunkenness_effect": 5,
 
     "price": 3
 }
@@ -33,9 +31,9 @@ drink_water = {
 
     "name": "A single",
 
-    "description": "balh blah"
+    "description": "balh blah",
 
-    "drunkenness_effect": -1
+    "drunkenness_effect": -1,
 
     "price": 0
 
@@ -49,9 +47,9 @@ drink_beer = {
 
     "name": "A beer",
 
-    "description": "balh blah"
+    "description": "balh blah",
 
-    "drunkenness_effect": 4
+    "drunkenness_effect": 4,
 
     "price": 3
 }
@@ -64,9 +62,9 @@ drink_VK = {
 
     "name": "A VK",
 
-    "description": "balh blah"
+    "description": "balh blah",
 
-    "drunkenness_effect": 3
+    "drunkenness_effect": 3,
 
     "price": 3
 }
@@ -76,9 +74,9 @@ food_burger = {
 
     "name": "A buger",
 
-    "description": "balh blah"
+    "description": "balh blah",
 
-    "happiness_effect": 1
+    "happiness_effect": 1,
 
     "price": 3
 }
