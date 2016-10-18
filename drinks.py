@@ -71,4 +71,14 @@ drink_VK = {
     "price": 3
 }
 
+food_burger = {
+    "id": "burger",
 
+    "name": "A buger",
+
+    "description": "balh blah"
+
+    "happiness_effect": 1
+
+    "price": 3
+}
