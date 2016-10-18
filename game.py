@@ -452,7 +452,7 @@ def main():
 
 
 def welcome():
-    print("Welcome to ___name here___ by team 13.")
+    print("Welcome to SU-rvival by team 13.")
     player_name = str(input("What is your name? > "))
     player_age = int(input("What is your age? > "))
     player_gender = str(input("And your gender? > "))
