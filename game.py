@@ -73,6 +73,15 @@ def print_inventory_items(items):
         print("You have {0}.\n".format(list_of_items(items)))
 
 
+def print_consumables_in_room(room):
+    print_consumables(room["consumables"])
+
+
+def print_consumables(items):
+    if items:
+        print("You can get {0}.\n".format(list_of_items(items)))
+
+
 def print_room(room):
     """This function takes a room as an input and nicely displays its name
     and description. The room argument is a dictionary with entries "name",
@@ -131,6 +140,7 @@ def print_room(room):
     # COMPLETE ME!
     #
     print_room_items(room)
+    print_consumables_in_room(room)
 
 
 def exit_leads_to(exits, direction):
@@ -413,6 +423,7 @@ def main():
         # Display game status (room description, inventory etc.)
         print_room(player1.current_room)
         print_inventory_items(player1.inventory)
+
 
         # Show the menu with possible actions and ask the player
         command = menu(player1.current_room["exits"], player1.current_room["items"], player1.inventory)

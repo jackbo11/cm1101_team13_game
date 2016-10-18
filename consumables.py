@@ -22,9 +22,9 @@ drink_double = {
 }
 
 drink_water = {
-    "id": "single",
+    "id": "water",
 
-    "name": "A single",
+    "name": "some water",
 
     "description": "balh blah",
 
