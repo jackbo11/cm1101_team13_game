@@ -112,20 +112,22 @@ def play_ring_of_fire(player1, timer):
                 print("2: You! Pick someone else to drink.")
                 choice = input(">>> ")
                 choice = normalise_input(choice)
-                while int(choose) == 0:     # loops till a valid NPC has been chosen
-                    if choice in players:
-                        while chance == 0:
-                            if int(x) == int(choice):           # can't pick yourself
-                                print("You can't pick yourself!")
-                                choice = input(">>> ")
-                                chance = 0
-                            else:
-                                chance = 1
-                                print(str(choice), "took a drink")
-                                choose = 1      # breaks loop
-                                inv["turns"] = inv["turns"] + 1
+                while int(choose) == 0:                 # loops till a valid NPC has been chosen
+                    if choice in players and players[0] != choice:
+                        print(str(choice), "took a drink")
+                        choose = 1                      # breaks loop
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                    elif choice in players and players[0] == choice:
+                        print("You can't pick yourself!")
+                        choice = input(">>> ")
+                        choose = 0
+                    elif not (choice in players) and players[0] == choice:
+                        print("You can't pick yourself!")
+                        choice = input(">>> ")
+                        choose = 0
                     else:
-                        print("Who?")
+                        print("who?")
                         choice = input(">>> ")
             # 3
             elif int(card) == 3:
@@ -178,18 +180,19 @@ def play_ring_of_fire(player1, timer):
                 choice = input(">>> ")
                 choice = normalise_input(choice)
                 while int(choose) == 0:                 # loops till a valid NPC has been chosen
-                    if choice in players:
-                        while chance == 0:
-                            if int(x) == int(choice):   # can't pick yourself
-                                print("You can't pick yourself!")
-                                choice = input(">>> ")
-                                chance = 0
-                            else:
-                                chance = 1
-                                print("You and", str(choice), "took a drink")
-                                choose = 1                      # breaks loop
-                                inv["turns"] = inv["turns"] + 1
-                                inv["drunk"] = inv["drunk"] + 1
+                    if choice in players and players[0] != choice:
+                        print("You and", str(choice), "took a drink")
+                        choose = 1                      # breaks loop
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                    elif choice in players and players[0] == choice:
+                        print("You can't pick yourself!")
+                        choice = input(">>> ")
+                        choose = 0
+                    elif not (choice in players) and players[0] == choice:
+                        print("You can't pick yourself!")
+                        choice = input(">>> ")
+                        choose = 0
                     else:
                         print("who?")
                         choice = input(">>> ")
@@ -478,7 +481,7 @@ def play_ring_of_fire(player1, timer):
             elif int(card) == 2:
                 choose = random.randrange(0, 5)         # picks a random player
                 while chance == 0:
-                    if int(x) == int(choose):           # stops NPCs picking themselves
+                    if players[int(x)] == players[int(choose)]:           # stops NPCs picking themselves
                         choose = random.randrange(0, 5)
                         chance = 0
                     else:
@@ -537,7 +540,7 @@ def play_ring_of_fire(player1, timer):
             elif int(card) == 8:
                 choose = random.randrange(0, 5)         # picks a random player
                 while chance == 0:
-                    if int(x) == int(choose):
+                    if players[int(x)] == players[int(choose)]:
                         choose = random.randrange(0, 5)
                         chance = 0
                     else:
