@@ -10,6 +10,7 @@ import sounds
 from soundplayer import SoundPlayer
 import events
 import atm
+import sys
 
 player1 = player.Player()
 timer = gametime.GameTime()
@@ -556,10 +557,16 @@ def main():
 
 
 def check_player_winning(player):
-    if timer.time_greater_than(3,00,23):
+    if (timer.time_greater_than(3,00,23)) and (player.current_room["name"] == "Talybont"):
+        print("Well done, you made it back after a night out! YOU WIN!")
+        sys.exit()
+    elif timer.time_greater_than(3,00,23):
         print("It's 3 AM, the lights are on, the night is over. Can you get home?")
         print("A taxi is waiting outside, it costs: £8.")
 
+    if (timer.time_greater_than(5, 00, 23)) and (player.current_room["name"] != "Talybont"):
+        print("It is dawn and you didn't make it home! GAME OVER.")
+        sys.exit()
 
 
 def welcome():
