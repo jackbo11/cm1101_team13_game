@@ -375,7 +375,7 @@ def execute_clock():
 
 
 def execute_sound_test():
-    SoundPlayer.play_beep(sounds.scales)
+    SoundPlayer.play_beep(sounds.song_closer)
 
 
 def execute_command(command):
