@@ -1,6 +1,5 @@
 import random
 import map
-import items
 
 
 class Player:
@@ -12,6 +11,7 @@ class Player:
         self.inventory = []
         self.current_room = map.rooms["Talybont"]
         self.__money = 30.0
+        self.__bank_money = 20
         self.__drunkenness = 0
         self.__drink_left = 0
         self.__happiness = 1
@@ -53,6 +53,19 @@ class Player:
             self.__money = 0.0
         else:
             self.__money = money
+
+    @property
+    def bank_money(self):
+        return self.__bank_money
+
+    @bank_money.setter
+    def bank_money(self, bank_money):
+        if bank_money > 50.0:
+            self.__bank_money = 50.0
+        elif bank_money < 0.0:
+            self.__bank_money = 0.0
+        else:
+            self.__bank_money = bank_money
 
     @property
     def drunkenness(self):
@@ -164,3 +177,7 @@ class Player:
 
         """.format(self.name, self.gender, self.age, self.happiness, self.drunkenness, self.drink_left, self.money,
                    self.cig_left)
+
+    def withdraw_from_bank(self, amount):
+        self.money += amount
+        self.bank_money -= amount

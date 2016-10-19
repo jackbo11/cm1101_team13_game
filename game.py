@@ -9,6 +9,7 @@ import ring_of_fire
 import sounds
 from soundplayer import SoundPlayer
 import events
+import atm
 
 player1 = player.Player()
 timer = gametime.GameTime()
@@ -226,6 +227,7 @@ def print_menu(exits, room_items, inv_items):
     What do you want to do?
 
     """
+    cash_atm_checker(player1)
     print("You can:")
     print("TIME")
     print("STATS")
@@ -484,6 +486,9 @@ def take_inventory_items(items):
 
     return normalised_user_input
 
+def cash_atm_checker(player):
+    if player.current_room["name"] == "ATM":
+        atm.cash_withdrawal(player)
 
 def take_initial_items():
     while True:

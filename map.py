@@ -159,7 +159,20 @@ or go north to Talybont.""",
     "can_smoke": False
 }
 
+room_atm = {
+    "name": "ATM",
+
+    "description":
+    """You can now withdraw some cash out.""",
+    "exits": { "west": "Outside", "north": "Talybont"},
+    "time_cost":{"west": 3, "north": 20},
+    "items": [],
+    "consumables": [],
+    "can_smoke": False
+}
+
 rooms = {
+    "ATM": room_atm,
     "Dancefloor": room_dancefloor,
     "Outside": room_outside,
     "Food": room_food,
