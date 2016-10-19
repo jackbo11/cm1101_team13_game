@@ -43,7 +43,10 @@ class Player:
 
     @property
     def money(self):
-        return self.__money
+        if not (any(d['id'] == 'money' for d in self.inventory)):
+            return 0.0
+        else:
+            return self.__money
 
     @money.setter
     def money(self, money):
