@@ -108,7 +108,7 @@ room_food = {
     "name": "Food",
 
     "description":
-    """You smell the yummy food. Would you like to get a burger for £3? You can go south to the Dancefloor or eat a burger.""",
+    """You smell the yummy food. You can get a legit subway, burger or chips. You can go south to the Dancefloor or eat a burger.""",
 
     "exits": {"south": "Dancefloor"},
     "time_cost": {"south": 4},
