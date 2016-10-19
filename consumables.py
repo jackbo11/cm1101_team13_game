@@ -85,7 +85,7 @@ food_chips = {
 food_subway = {
     "id": "subway",
     
-    "name": "subway",
+    "name": "A subway",
     
     "description": "balh blah",
     
