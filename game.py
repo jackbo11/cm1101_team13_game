@@ -297,6 +297,12 @@ def add_money_cost(room, direction):
         player1.pay(money_to_pay)
 
 
+def verify_player_su(player):
+    if player.age >= 18 and any(d['id'] == 'id' for d in player.inventory) and any(d['id'] == 'drivinglicense' for d in player.inventory):
+        return True
+    else:
+        return False
+
 def execute_go(direction):
     """This function, given the direction (e.g. "south") updates the current room
     to reflect the movement of the player if the direction is a valid exit
