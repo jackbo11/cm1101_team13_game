@@ -93,3 +93,15 @@ food_subway = {
     
     "price": 3
 }
+
+food_kebab = {
+    "id": "kebab",
+    
+    "name": "A kebab",
+    
+    "description": "balh blah",
+    
+    "hapiness_effect": 1
+    
+    "price": 2
+}
