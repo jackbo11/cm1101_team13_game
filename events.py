@@ -1,5 +1,7 @@
 import random
 import gameparser
+from soundplayer import SoundPlayer
+import sounds
 
 
 def bad_things_happen(player):
@@ -57,6 +59,7 @@ def normal_things_happen(player):
         if r == 0:
             print("Your favourite song comes on, and you have a great time listening to it.")
             player.increase_happiness(1)
+            SoundPlayer.play_beep(sounds.song_closer)
 
         if r == 1:
             print("You hate this song, and 5 minutes of your life will never get back.")
