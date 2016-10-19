@@ -61,7 +61,7 @@ drink_VK = {
 food_burger = {
     "id": "burger",
 
-    "name": "A buger",
+    "name": "A burger",
 
     "description": "balh blah",
 
