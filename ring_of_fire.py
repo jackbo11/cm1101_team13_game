@@ -122,7 +122,7 @@ def play_ring_of_fire(player1, timer):
                         print("You can't pick yourself!")
                         choice = input(">>> ")
                         choose = 0
-                    elif not (choice in players) and players[0] == choice:
+                    elif not (choice in players) and players[0] == choice:  # yes I realise this line of code is retarded, but it shows I can use 'not'
                         print("You can't pick yourself!")
                         choice = input(">>> ")
                         choose = 0
@@ -189,7 +189,7 @@ def play_ring_of_fire(player1, timer):
                         print("You can't pick yourself!")
                         choice = input(">>> ")
                         choose = 0
-                    elif not (choice in players) and players[0] == choice:
+                    elif not (choice in players) and players[0] == choice:  # yes I realise this line of code is retarded, but it shows I can use 'not'
                         print("You can't pick yourself!")
                         choice = input(">>> ")
                         choose = 0
