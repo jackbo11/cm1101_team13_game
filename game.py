@@ -560,6 +560,9 @@ def check_player_winning(player):
     if (timer.time_greater_than(3,00,23)) and (player.current_room["name"] == "Talybont"):
         print("Well done, you made it back after a night out! YOU WIN!")
         sys.exit()
+    if (timer.time_greater_than(11, 00, 23)) and (player.happiness <=4):
+        print("You are not happy enough to stay in the club. GAME OVER!")
+        sys.exit()
     elif timer.time_greater_than(3,00,23):
         print("It's 3 AM, the lights are on, the night is over. Can you get home?")
         print("A taxi is waiting outside, it costs: £8.")
