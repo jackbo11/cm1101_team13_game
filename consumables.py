@@ -95,11 +95,11 @@ food_subway = {
 }
 
 food_Ivan = {
-    "id": "ivan",
+    "id": "simon",
     
-    "name": "ivan",
+    "name": "simon",
     
-    "description": "Hong Kong fish",
+    "description": "Simon the ugly fish",
     
     "happiness_effect": 7,
     
