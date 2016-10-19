@@ -93,15 +93,3 @@ food_subway = {
     
     "price": 3
 }
-
-food_simon = {
-    "id": "simon",
-    
-    "name": "simon",
-    
-    "description": "Simon the ugly fish",
-    
-    "happiness_effect": 7,
-    
-    "price": 2
-}
