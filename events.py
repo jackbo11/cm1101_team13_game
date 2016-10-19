@@ -23,10 +23,10 @@ def bad_things_happen(player):
         elif r == 3:
             print("Oops! You spilt your drink down someone!")
             u = input("They shove you on the shoulder. Do you get in fight or buy them a drink >")
-            gameparser.normalise_string(u)
+            u = gameparser.normalise_string(u)
             if u == "fight":
                 print("You both get a couple of punches and broken up by the bouncer.")
-                player.increase_drunkenness(-2)
+                player.increase_drunkenness(-1)
                 player.increase_happiness(-2)
             if u == "drink":
                 print("You go to the bar and buy them a drink")
@@ -34,10 +34,10 @@ def bad_things_happen(player):
         elif r == 4:
             print("Oops! You spilt someone's drink!")
             u = input("They shove you on the shoulder. Do you get in fight or buy them a drink >")
-            gameparser.normalise_string(u)
+            u = gameparser.normalise_string(u)
             if u == "fight":
                 print("You both get a couple of punches and broken up by the bouncer.")
-                player.increase_drunkenness(-2)
+                player.increase_drunkenness(-1)
                 player.increase_happiness(-2)
             if u == "drink":
                 print("You go to the bar and buy them a drink")
@@ -47,7 +47,7 @@ def bad_things_happen(player):
 
     elif player.money == 0:
         player.increase_happiness(-2)
-        player.increase_drunkenness(-2)
+        player.increase_drunkenness(-1)
 
 
 def normal_things_happen(player):
@@ -56,7 +56,7 @@ def normal_things_happen(player):
 
         if r == 0:
             print("Your favourite song comes on, and you have a great time listening to it.")
-            player.increase_happiness(2)
+            player.increase_happiness(1)
 
         if r == 1:
             print("You hate this song, and 5 minutes of your life will never get back.")
@@ -68,13 +68,15 @@ def normal_things_happen(player):
             else:
                 print("You get chatting to a guy and get his number. Nice Work!")
 
-            player.increase_happiness(2)
+            player.increase_happiness(1)
 
         if r == 3:
             print("Your friend buys you a drink")
-            player.increase_happiness(2)
+            player.increase_happiness(1)
 
         if r == 4:
-            print("you buy your friend a drink")
-            player.increase_happiness(2)
-            player.pay(2)
+            # Add this a command
+            # print("you buy your friend a drink")
+            # player.increase_happiness(2)
+            # player.pay(2)
+            pass
