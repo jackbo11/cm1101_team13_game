@@ -474,17 +474,19 @@ def move(exits, direction):
 
 
 def take_inventory_items(items):
-
     print()
-
     for room_item in items:
         print("TAKE {0} to take {1}.".format(room_item["id"].upper(), room_item["name"]))
-
     user_input = input("> ")
-
+    if user_input == "":
+        a=True
+        while a == True:
+            user_input= input("You have to print something!")
+            if user_input !="":
+                a = False
     normalised_user_input = normalise_input(user_input)
-
     return normalised_user_input
+
 
 def cash_atm_checker(player):
     if player.current_room["name"] == "ATM":
