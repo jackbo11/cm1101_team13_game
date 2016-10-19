@@ -523,95 +523,95 @@ def play_ring_of_fire(player1, timer):
                     inv["turns"] = inv["turns"] + 1
             #9
             elif int(card) == 9:
-            print("10: Rhyme!")
-            confirm = random.randrange(1, 4)        # chooses a random words to rhyme with          
-            if confirm == 1:
-                print("What rhymes with ring?")
-                while chance != 3:                  # chance of an NPC losing the round
-                    choice = input(">>> ")
-                    choice = normalise_input(choice)
-                    if choice in wordlist:          # stops the player repeating answers
-                        print("\n")
-                        print("You have already said", str(choice), ". You take a drink")
-                        inv["turns"] = inv["turns"] + 1
-                        inv["drunk"] = inv["drunk"] + 1
-                        chance = 3
-                    else:
-                        wordlist.append(choice)     # adds choice to list of answers so it can't be repeated
-                        x = str(choice[-3:])
-                        if str(x) == "ing":
+                print("9: Rhyme!")
+                confirm = random.randrange(1, 4)        # chooses a random words to rhyme with          
+                if confirm == 1:
+                    print("What rhymes with ring?")
+                    while chance != 3:                  # chance of an NPC losing the round
+                        choice = input(">>> ")
+                        choice = normalise_input(choice)
+                        if choice in wordlist:          # stops the player repeating answers
                             print("\n")
-                            print("Correct")
-                            chance = random.randrange(0, 4)     # 1 in 4 chance of an NPC getting  a wrong answer
-                            if chance == 3:
-                                print("Someone else can't think of an answer. They drink and that round ends")
-                                inv["turns"] = inv["turns"] + 1
-                            else:
-                                print("Everyone else also thinks of an answer, now it is your turn again")
-                        else:
-                            print("\n")
-                            print(str(choice), "doesn't seem to be a valid answer. You take a drink")
+                            print("You have already said", str(choice), ". You take a drink")
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-            elif confirm == 2:
-                print("What rhymes with bell?")
-                while chance != 3:                  # chance of an NPC losing the round
-                    choice = input(">>> ")
-                    choice = normalise_input(choice)
-                    if choice in wordlist:          # stops the player repeating answers
-                        print("\n")
-                        print("You have already said", str(choice), ". You take a drink")
-                        inv["turns"] = inv["turns"] + 1
-                        inv["drunk"] = inv["drunk"] + 1
-                        chance = 3
-                    else:
-                        wordlist.append(choice)     # adds choice to list of answers so it can't be repeated
-                        x = str(choice[-3:])
-                        if str(x) == "ell":
-                            print("\n")
-                            print("Correct")
-                            chance = random.randrange(0, 4)     # 1 in 4 chance of an NPC getting  a wrong answer
-                            if chance == 3:
-                                print("Someone else can't think of an answer. They drink and that round ends")
-                                inv["turns"] = inv["turns"] + 1
-                            else:
-                                print("Everyone else also thinks of an answer, now it is your turn again")
                         else:
+                            wordlist.append(choice)     # adds choice to list of answers so it can't be repeated
+                            x = str(choice[-3:])
+                            if str(x) == "ing":
+                                print("\n")
+                                print("Correct")
+                                chance = random.randrange(0, 4)     # 1 in 4 chance of an NPC getting  a wrong answer
+                                if chance == 3:
+                                    print("Someone else can't think of an answer. They drink and that round ends")
+                                    inv["turns"] = inv["turns"] + 1
+                                else:
+                                    print("Everyone else also thinks of an answer, now it is your turn again")
+                            else:
+                                print("\n")
+                                print(str(choice), "doesn't seem to be a valid answer. You take a drink")
+                                inv["turns"] = inv["turns"] + 1
+                                inv["drunk"] = inv["drunk"] + 1
+                                chance = 3
+                elif confirm == 2:
+                    print("What rhymes with bell?")
+                    while chance != 3:                  # chance of an NPC losing the round
+                        choice = input(">>> ")
+                        choice = normalise_input(choice)
+                        if choice in wordlist:          # stops the player repeating answers
                             print("\n")
-                            print(str(choice), "doesn't seem to be a valid answer. You take a drink")
+                            print("You have already said", str(choice), ". You take a drink")
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-            elif confirm == 3:
-                print("What rhymes with mend?")
-                while chance != 3:                  # chance of an NPC losing the round
-                    choice = input(">>> ")
-                    choice = normalise_input(choice)
-                    if choice in wordlist:          # stops the player repeating answers
-                        print("\n")
-                        print("You have already said", str(choice), ". You take a drink")
-                        inv["turns"] = inv["turns"] + 1
-                        inv["drunk"] = inv["drunk"] + 1
-                        chance = 3
-                    else:
-                        wordlist.append(choice)     # adds choice to list of answers so it can't be repeated
-                        x = str(choice[-3:])
-                        if str(x) == "end":
-                            print("\n")
-                            print("Correct")
-                            chance = random.randrange(0, 4)     # 1 in 4 chance of an NPC getting  a wrong answer
-                            if chance == 3:
-                                print("Someone else can't think of an answer. They drink and that round ends")
-                                inv["turns"] = inv["turns"] + 1
-                            else:
-                                print("Everyone else also thinks of an answer, now it is your turn again")
                         else:
+                            wordlist.append(choice)     # adds choice to list of answers so it can't be repeated
+                            x = str(choice[-3:])
+                            if str(x) == "ell":
+                                print("\n")
+                                print("Correct")
+                                chance = random.randrange(0, 4)     # 1 in 4 chance of an NPC getting  a wrong answer
+                                if chance == 3:
+                                    print("Someone else can't think of an answer. They drink and that round ends")
+                                    inv["turns"] = inv["turns"] + 1
+                                else:
+                                    print("Everyone else also thinks of an answer, now it is your turn again")
+                            else:
+                                print("\n")
+                                print(str(choice), "doesn't seem to be a valid answer. You take a drink")
+                                inv["turns"] = inv["turns"] + 1
+                                inv["drunk"] = inv["drunk"] + 1
+                                chance = 3
+                elif confirm == 3:
+                    print("What rhymes with mend?")
+                    while chance != 3:                  # chance of an NPC losing the round
+                        choice = input(">>> ")
+                        choice = normalise_input(choice)
+                        if choice in wordlist:          # stops the player repeating answers
                             print("\n")
-                            print(str(choice), "doesn't seem to be a valid answer. You take a drink")
+                            print("You have already said", str(choice), ". You take a drink")
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
+                        else:
+                            wordlist.append(choice)     # adds choice to list of answers so it can't be repeated
+                            x = str(choice[-3:])
+                            if str(x) == "end":
+                                print("\n")
+                                print("Correct")
+                                chance = random.randrange(0, 4)     # 1 in 4 chance of an NPC getting  a wrong answer
+                                if chance == 3:
+                                    print("Someone else can't think of an answer. They drink and that round ends")
+                                    inv["turns"] = inv["turns"] + 1
+                                else:
+                                    print("Everyone else also thinks of an answer, now it is your turn again")
+                            else:
+                                print("\n")
+                                print(str(choice), "doesn't seem to be a valid answer. You take a drink")
+                                inv["turns"] = inv["turns"] + 1
+                                inv["drunk"] = inv["drunk"] + 1
+                                chance = 3
             # 10
             elif int(card) == 10:
                 print("10: Categories!")
