@@ -317,7 +317,7 @@ def execute_drop(item_id):
 
 
 def execute_drink(player):
-    player1.drink()
+    print(player1.drink())
     print("Your drunkenness is now {0}".format(player.drunkenness))
 
 
