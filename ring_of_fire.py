@@ -12,6 +12,12 @@ def play_ring_of_fire(player1, timer):
     confirm = 0
     chance = 0
     x = 0
+    wordlist = []
+    
+    if player1.gender == "Male":
+        gen = 1
+    elif player1.gender == "Female":
+        gen = 2
 
     # Player's progress
     inv = {"turns": 0, "drunk": 0}
@@ -117,27 +123,36 @@ def play_ring_of_fire(player1, timer):
                         choice = input(">>> ")
             #9
             elif int(card) == 9:
-                print("9: Rhyme! What word would you like to choose?")
-                print(" A : Ring")
-                print(" B : Bell")
-                print(" C : Mend")
-                option = input(">>> ")
-                option = normalise_input(option)
-                while confirm == 0:
-                    if option == "a" or option == "ring":
-                        confirm = 1
-                    elif option == "b" or option == "bell":
-                        confirm = 2
-                    elif option == "c" or option == "mend":
-                        confirm = 3
+            print("9: Rhyme! What word would you like to choose?")
+            print(" A : Ring")
+            print(" B : Bell")
+            print(" C : Mend")
+            option = input(">>> ")
+            option = normalise_input(option)
+            while confirm == 0:
+                if option == "a" or option == "ring":
+                    confirm = 1
+                elif option == "b" or option == "bell":
+                    confirm = 2
+                elif option == "c" or option == "mend":
+                    confirm = 3
+                else:
+                    confirm = 0
+                    print("Answer unclear, which word?")
+                    option = input(">>> ")            
+            if confirm == 1:
+                print("What rhymes with ring?")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
                     else:
-                        confirm = 0
-                        print("Answer unclear, which word?")
-                        option = input(">>> ")            
-                if confirm == 1:
-                    print("What rhymes with ring?")
-                    while chance != 3:
-                        choice = input(">>> ")
+                        wordlist.append(choice)
                         x = str(choice[-3:])
                         if str(x) == "ing":
                             print("\n")
@@ -154,10 +169,19 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 2:
-                    print("What rhymes with bell?")
-                    while chance != 3:
-                        choice = input(">>> ")
+            elif confirm == 2:
+                print("What rhymes with bell?")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         x = str(choice[-3:])
                         if str(x) == "ell":
                             print("\n")
@@ -174,10 +198,19 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 2:
-                    print("What rhymes with mend?")
-                    while chance != 3:
-                        choice = input(">>> ")
+            elif confirm == 2:
+                print("What rhymes with mend?")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         x = str(choice[-3:])
                         if str(x) == "end":
                             print("\n")
@@ -194,34 +227,42 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-            # 10
-            elif int(card) == 10:
-                print("10: Categories! What category would you like to choose?")
-                print(" A : Farm Animals")
-                print(" B : Alcoholic Drinks")
-                print(" C : Colours")
-                print(" D : European Countries")
-                option = input(">>> ")
-                option = normalise_input(option)
-                while confirm == 0:
-                    if option == "a" or option == "farm" or option == "animals":
-                        confirm = 1
-                    elif option == "b" or option == "alcohol" or option == "drinks":
-                        confirm = 2
-                    elif option == "c" or option == "colours":
-                        confirm = 3
-                    elif option == "d" or option == "europe" or option == "countries":
-                        confirm = 4
+        # 10
+        elif int(card) == 10:
+            print("10: Categories! What category would you like to choose?")
+            print(" A : Farm Animals")
+            print(" B : Alcoholic Drinks")
+            print(" C : Colours")
+            print(" D : European Countries")
+            option = input(">>> ")
+            option = normalise_input(option)
+            while confirm == 0:
+                if option == "a" or option == "farm" or option == "animals":
+                    confirm = 1
+                elif option == "b" or option == "alcohol" or option == "drinks":
+                    confirm = 2
+                elif option == "c" or option == "colours":
+                    confirm = 3
+                elif option == "d" or option == "europe" or option == "countries":
+                    confirm = 4
+                else:
+                    confirm = 0
+                    print("Answer unclear, which category?")
+                    option = input(">>> ")
+            if confirm == 1:
+                print("The category is farm animals!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
                     else:
-                        confirm = 0
-                        print("Answer unclear, which category?")
-                        option = input(">>> ")
-                if confirm == 1:
-                    print("The category is farm animals!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        wordlist.append(choice)
                         if choice in farm_animals:
                             print("\n")
                             print("Correct")
@@ -237,12 +278,20 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 2:
-                    print("The category is alcoholic drinks!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+            elif confirm == 2:
+                print("The category is alcoholic drinks!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         if choice in alcohols:
                             print("\n")
                             print("Correct")
@@ -258,12 +307,20 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 3:
-                    print("The category is colours!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+            elif confirm == 3:
+                print("The category is colours!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         if choice in colours:
                             print("\n")
                             print("Correct")
@@ -279,12 +336,20 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 4:
-                    print("The category is european countries!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+            elif confirm == 4:
+                print("The category is european countries!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         if choice in eu_countries:
                             print("\n")
                             print("Correct")
@@ -319,6 +384,8 @@ def play_ring_of_fire(player1, timer):
             choose = 0
             confirm = 0
             chance = 0
+            x = 0
+            wordlist = []
             input("")
 
         # NPC's TURN
@@ -397,12 +464,21 @@ def play_ring_of_fire(player1, timer):
                     inv["turns"] = inv["turns"] + 1
             #9
             elif int(card) == 9:
-                print("10: Rhyme!")
-                confirm = random.randrange(1, 5)          
-                if confirm == 1:
-                    print("What rhymes with ring?")
-                    while chance != 3:
-                        choice = input(">>> ")
+            print("10: Rhyme!")
+            confirm = random.randrange(1, 5)          
+            if confirm == 1:
+                print("What rhymes with ring?")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         x = str(choice[-3:])
                         if str(x) == "ing":
                             print("\n")
@@ -419,10 +495,19 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 2:
-                    print("What rhymes with bell?")
-                    while chance != 3:
-                        choice = input(">>> ")
+            elif confirm == 2:
+                print("What rhymes with bell?")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         x = str(choice[-3:])
                         if str(x) == "ell":
                             print("\n")
@@ -439,10 +524,19 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 2:
-                    print("What rhymes with mend?")
-                    while chance != 3:
-                        choice = input(">>> ")
+            elif confirm == 2:
+                print("What rhymes with mend?")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         x = str(choice[-3:])
                         if str(x) == "end":
                             print("\n")
@@ -459,16 +553,24 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-            # 10
-            elif int(card) == 10:
-                print("10: Categories!")
-                confirm = random.randrange(1, 5)
-                if confirm == 1:
-                    print(players[int(x)], "chose the category farm animals!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+        # 10
+        elif int(card) == 10:
+            print("10: Categories!")
+            confirm = random.randrange(1, 5)
+            if confirm == 1:
+                print(players[int(x)], "chose the category farm animals!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         if choice in farm_animals:
                             print("\n")
                             print("Correct")
@@ -484,12 +586,20 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 2:
-                    print(players[int(x)], "chose the category alcoholic drinks!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+            elif confirm == 2:
+                print(players[int(x)], "chose the category alcoholic drinks!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         if choice in alcohols:
                             print("\n")
                             print("Correct")
@@ -505,12 +615,20 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 3:
-                    print(players[int(x)], "chose the category colours!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+            elif confirm == 3:
+                print(players[int(x)], "chose the category colours!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         if choice in colours:
                             print("\n")
                             print("Correct")
@@ -526,12 +644,20 @@ def play_ring_of_fire(player1, timer):
                             inv["turns"] = inv["turns"] + 1
                             inv["drunk"] = inv["drunk"] + 1
                             chance = 3
-                elif confirm == 4:
-                    print(players[int(x)], "chose the category european countries!")
-                    print("Please name one")
-                    while chance != 3:
-                        choice = input(">>> ")
-                        choice = normalise_input(choice)
+            elif confirm == 4:
+                print(players[int(x)], "chose the category european countries!")
+                print("Please name one")
+                while chance != 3:
+                    choice = input(">>> ")
+                    choice = normalise_input(choice)
+                    if choice in wordlist:
+                        print("\n")
+                        print("You have already said", str(choice), ". You take a drink")
+                        inv["turns"] = inv["turns"] + 1
+                        inv["drunk"] = inv["drunk"] + 1
+                        chance = 3
+                    else:
+                        wordlist.append(choice)
                         if choice in eu_countries:
                             print("\n")
                             print("Correct")
@@ -566,6 +692,8 @@ def play_ring_of_fire(player1, timer):
             choose = 0
             confirm = 0
             chance = 0
+            x = 0
+            wordlist = []
             input("")
 
     print("Player's drunkness got to", inv["drunk"])
