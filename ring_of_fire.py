@@ -114,9 +114,16 @@ def play_ring_of_fire(player1, timer):
                 choice = normalise_input(choice)
                 while int(choose) == 0:     # loops till a valid NPC has been chosen
                     if choice in players:
-                        print(str(choice), "took a drink")
-                        choose = 1      # breaks loop
-                        inv["turns"] = inv["turns"] + 1
+                        while chance == 0:
+                            if int(x) == int(choice):           # can't pick yourself
+                                print("You can't pick yourself!")
+                                choice = input(">>> ")
+                                chance = 0
+                            else:
+                                chance = 1
+                                print(str(choice), "took a drink")
+                                choose = 1      # breaks loop
+                                inv["turns"] = inv["turns"] + 1
                     else:
                         print("Who?")
                         choice = input(">>> ")
@@ -172,10 +179,17 @@ def play_ring_of_fire(player1, timer):
                 choice = normalise_input(choice)
                 while int(choose) == 0:                 # loops till a valid NPC has been chosen
                     if choice in players:
-                        print("You and", str(choice), "took a drink")
-                        choose = 1                      # breaks loop
-                        inv["turns"] = inv["turns"] + 1
-                        inv["drunk"] = inv["drunk"] + 1
+                        while chance == 0:
+                            if int(x) == int(choice):   # can't pick yourself
+                                print("You can't pick yourself!")
+                                choice = input(">>> ")
+                                chance = 0
+                            else:
+                                chance = 1
+                                print("You and", str(choice), "took a drink")
+                                choose = 1                      # breaks loop
+                                inv["turns"] = inv["turns"] + 1
+                                inv["drunk"] = inv["drunk"] + 1
                     else:
                         print("who?")
                         choice = input(">>> ")
@@ -439,6 +453,7 @@ def play_ring_of_fire(player1, timer):
                 print("Oh no! It's a king! Drink the dirty pint")
                 inv["turns"] = inv["turns"] + 1
                 inv["drunk"] = inv["drunk"] + 5         # dirty pint, so add 5 to drunkness
+
             # RESET VARIABLES
             choose = 0
             confirm = 0
@@ -462,12 +477,18 @@ def play_ring_of_fire(player1, timer):
             # 2
             elif int(card) == 2:
                 choose = random.randrange(0, 5)         # picks a random player
-                print("2: You!", players[int(x)], "picked", players[int(choose)], "to drink.")
-                if int(choose) == 0:
-                    inv["turns"] = inv["turns"] + 1
-                    inv["drunk"] = inv["drunk"] + 1
-                else:
-                    inv["turns"] = inv["turns"] + 1
+                while chance == 0:
+                    if int(x) == int(choose):           # stops NPCs picking themselves
+                        choose = random.randrange(0, 5)
+                        chance = 0
+                    else:
+                        print("2: You!", players[int(x)], "picked", players[int(choose)], "to drink.")
+                        chance = 1
+                        if int(choose) == 0:
+                            inv["turns"] = inv["turns"] + 1
+                            inv["drunk"] = inv["drunk"] + 1
+                        else:
+                            inv["turns"] = inv["turns"] + 1
             # 3
             elif int(card) == 3:
                 print("3: Me!", players[int(x)], "took a drink.")
@@ -515,12 +536,18 @@ def play_ring_of_fire(player1, timer):
             # 8
             elif int(card) == 8:
                 choose = random.randrange(0, 5)         # picks a random player
-                print("8: Mate!", players[int(x)], "picked", players[int(choose)], "to drink with.")
-                if int(choose) == 0:
-                    inv["turns"] = inv["turns"] + 1
-                    inv["drunk"] = inv["drunk"] + 1
-                else:
-                    inv["turns"] = inv["turns"] + 1
+                while chance == 0:
+                    if int(x) == int(choose):
+                        choose = random.randrange(0, 5)
+                        chance = 0
+                    else:
+                        print("8: Mate!", players[int(x)], "picked", players[int(choose)], "to drink with.")
+                        chance = 1
+                        if int(choose) == 0:
+                            inv["turns"] = inv["turns"] + 1
+                            inv["drunk"] = inv["drunk"] + 1
+                        else:
+                            inv["turns"] = inv["turns"] + 1
             #9
             elif int(card) == 9:
                 print("9: Rhyme!")
@@ -748,6 +775,7 @@ def play_ring_of_fire(player1, timer):
                 print("Oh no! It's a king! Drink the dirty pint")
                 inv["turns"] = inv["turns"] + 1
                 inv["drunk"] = inv["drunk"] + 5
+
             # RESET VARIABLES
             choose = 0
             confirm = 0
