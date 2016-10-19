@@ -94,7 +94,7 @@ food_subway = {
     "price": 3
 }
 
-food_Ivan = {
+food_simon = {
     "id": "simon",
     
     "name": "simon",
