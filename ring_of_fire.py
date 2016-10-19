@@ -10,6 +10,10 @@ def play_ring_of_fire(player1, timer):
     confirm = 0
     chance = 0
     x = 0
+    npc1 = ""
+    npc2 = ""
+    npc3 = ""
+    npc4 = ""
     wordlist = []
     
     # Converts gender to integer
@@ -21,7 +25,7 @@ def play_ring_of_fire(player1, timer):
     # Player's progress
     inv = {"turns": 0, "drunk": 0}
 
-    # Categorys
+    # Categories
     farm_animals = ["duck", "chicken", "hen", "cow", "sheep", "pig", "horse", "donkey", "cat", "dog", "alpaca", "emu", "goat", "goose", "llama", "pigeon", "rabbit", "turkey"]
     alcohols = ["gin", "vodka", "beer", "wine", "red wine", "white wine", "rum", "brandy", "whiskey", "shandy", "cider", "champagne", "sake", "eggnog", "sherry", "port", "amaretto", "martini", "jager", "jagermeister", "tequila", "sambuca", "schnaps", "absinthe"]
     colours = ["pink", "red", "orange", "yellow", "brown", "green", "blue", "indigo", "purple", "violet", "black", "white", "grey"]
@@ -31,7 +35,7 @@ def play_ring_of_fire(player1, timer):
     print("You start the night in your flat with your flat mates, what were their names again?")
     while choose == 0:
         npc1 = input("Flat mate 1: ")
-        npc1 = normalise_input(npc1)
+        npc1 = gameparser.normalise_string(npc1)
         if npc1 == "":
             "Not a valid name"
             npc1 = input("Flat mate 1: ")
@@ -41,7 +45,7 @@ def play_ring_of_fire(player1, timer):
     choose = 0
     while choose == 0:
         npc2 = input("Flat mate 2: ")
-        npc2 = normalise_input(npc2)
+        npc2 = gameparser.normalise_string(npc2)
         if npc2 == "":
             "Not a valid name"
             npc2 = input("Flat mate 2: ")
@@ -51,7 +55,7 @@ def play_ring_of_fire(player1, timer):
     choose = 0
     while choose == 0:
         npc3 = input("Flat mate 3: ")
-        npc3 = normalise_input(npc3)
+        npc3 = gameparser.normalise_string(npc3)
         if npc3 == "":
             "Not a valid name"
             npc3 = input("Flat mate 3: ")
@@ -61,7 +65,7 @@ def play_ring_of_fire(player1, timer):
     choose = 0
     while choose == 0:
         npc4 = input("Flat mate 4: ")
-        npc4 = normalise_input(npc4)
+        npc4 = gameparser.normalise_string(npc4)
         if npc4 == "":
             "Not a valid name"
             npc4 = input("Flat mate 4: ")
@@ -97,6 +101,7 @@ def play_ring_of_fire(player1, timer):
     # MAIN LOOP
     # YOUR TURN
     while inv["turns"] < 21:
+        timer.add_minutes(4)
         if int(inv["turns"]) % 5 == 0:      # player's turn every 5 turns
             print("\n")
             print("It is your turn. Press any key to pick a card!")
@@ -111,7 +116,7 @@ def play_ring_of_fire(player1, timer):
             elif int(card) == 2:
                 print("2: You! Pick someone else to drink.")
                 choice = input(">>> ")
-                choice = normalise_input(choice)
+                choice = gameparser.normalise_string(choice)
                 while int(choose) == 0:                 # loops till a valid NPC has been chosen
                     if choice in players and players[0] != choice:
                         print(str(choice), "took a drink")
@@ -146,7 +151,7 @@ def play_ring_of_fire(player1, timer):
             # 5
             elif int(card) == 5:
                 choice = input("Do you remember rule 5? ")
-                choice = normalise_input(choice)
+                choice = gameparser.normalise_string(choice)
                 if str(choice) == "thumb" or str(choice) == "thumbs":
                     print("Well done, you don't have to drink")
                     inv["turns"] = inv["turns"] + 1
@@ -166,7 +171,7 @@ def play_ring_of_fire(player1, timer):
             # 7
             elif int(card) == 7:
                 choice = input("Do you remember rule 7? ")
-                choice = normalise_input(choice)
+                choice = gameparser.normalise_string(choice)
                 if str(choice) == "heaven":
                     print("Well done, you don't have to drink")
                     inv["turns"] = inv["turns"] + 1
@@ -178,7 +183,7 @@ def play_ring_of_fire(player1, timer):
             elif int(card) == 8:
                 print("8: Mate! Pick someone else to drink with.")
                 choice = input(">>> ")
-                choice = normalise_input(choice)
+                choice = gameparser.normalise_string(choice)
                 while int(choose) == 0:                 # loops till a valid NPC has been chosen
                     if choice in players and players[0] != choice:
                         print("You and", str(choice), "took a drink")
@@ -203,7 +208,7 @@ def play_ring_of_fire(player1, timer):
                 print(" B : Bell")
                 print(" C : Mend")
                 option = input(">>> ")
-                option = normalise_input(option)
+                option = gameparser.normalise_string(option)
                 while confirm == 0:                     # loops until valid choice is made
                     if option == "a" or option == "ring":
                         confirm = 1
@@ -219,7 +224,7 @@ def play_ring_of_fire(player1, timer):
                     print("What rhymes with ring?")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -248,7 +253,7 @@ def play_ring_of_fire(player1, timer):
                     print("What rhymes with bell?")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -277,7 +282,7 @@ def play_ring_of_fire(player1, timer):
                     print("What rhymes with mend?")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -310,7 +315,7 @@ def play_ring_of_fire(player1, timer):
                 print(" C : Colours")
                 print(" D : European Countries")
                 option = input(">>> ")
-                option = normalise_input(option)
+                option = gameparser.normalise_string(option)
                 while confirm == 0:
                     if option == "a" or option == "farm" or option == "animals":
                         confirm = 1
@@ -329,7 +334,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -358,7 +363,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -387,7 +392,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -416,7 +421,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -508,7 +513,7 @@ def play_ring_of_fire(player1, timer):
             # 5
             elif int(card) == 5:
                 choice = input("Do you remember rule 5? ")
-                choice = normalise_input(choice)
+                choice = gameparser.normalise_string(choice)
                 if str(choice) == "thumb" or str(choice) == "thumbs":
                     print("Well done, you don't have to drink")
                     inv["turns"] = inv["turns"] + 1
@@ -528,7 +533,7 @@ def play_ring_of_fire(player1, timer):
             # 7
             elif int(card) == 7:
                 choice = input("Do you remember rule 7? ")
-                choice = normalise_input(choice)
+                choice = gameparser.normalise_string(choice)
                 if str(choice) == "heaven":
                     print("Well done, you don't have to drink")
                     inv["turns"] = inv["turns"] + 1
@@ -559,7 +564,7 @@ def play_ring_of_fire(player1, timer):
                     print("What rhymes with ring?")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -588,7 +593,7 @@ def play_ring_of_fire(player1, timer):
                     print("What rhymes with bell?")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -617,7 +622,7 @@ def play_ring_of_fire(player1, timer):
                     print("What rhymes with mend?")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -651,7 +656,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -680,7 +685,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -709,7 +714,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")
@@ -738,7 +743,7 @@ def play_ring_of_fire(player1, timer):
                     print("Please name one")
                     while chance != 3:                  # chance of an NPC losing the round
                         choice = input(">>> ")
-                        choice = normalise_input(choice)
+                        choice = gameparser.normalise_string(choice)
                         if choice in wordlist:          # stops the player repeating answers
                             print("\n")
                             print("You have already said", str(choice), ". You take a drink")

@@ -5,7 +5,7 @@ from items import *
 from gameparser import *
 import player
 import gametime
-#import ring_of_fire
+import ring_of_fire
 import sounds
 from soundplayer import SoundPlayer
 import events
@@ -523,7 +523,7 @@ def take_initial_items():
 def main():
     welcome()
     take_initial_items()
-    #ring_of_fire.play_ring_of_fire(player1, timer)
+    ring_of_fire.play_ring_of_fire(player1, timer)
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
