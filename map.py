@@ -11,7 +11,7 @@ room_outside = {
     "exits": {"southeast": "Dancefloor", "north": "Taxi"},
     "time_cost": {"southeast": 3, "north": 2},
     "items": [],
-    "consumables": []
+    "consumables": [],
     "can_smoke": True
 }
 
@@ -28,7 +28,7 @@ room_bar1 = {
     "time_cost": {"east": 2},
 
     "items": [],
-    "consumables": [consumables.drink_beer, consumables.drink_single, consumables.drink_water]
+    "consumables": [consumables.drink_beer, consumables.drink_single, consumables.drink_water],
     "can_smoke": False
 }
 
@@ -45,7 +45,7 @@ room_bar2 = {
     "time_cost": {"northeast": 7, "southeast": 4},
 
     "items": [],
-    "consumables": [consumables.drink_VK, consumables.drink_single, consumables.drink_double, consumables.drink_water]
+    "consumables": [consumables.drink_VK, consumables.drink_single, consumables.drink_double, consumables.drink_water],
     "can_smoke": False
 }
 
@@ -62,7 +62,7 @@ room_bar3 = {
     "time_cost": {"north": 5,},
 
     "items": [],
-    "consumables": [consumables.drink_water, consumables.drink_VK, consumables.drink_beer]
+    "consumables": [consumables.drink_water, consumables.drink_VK, consumables.drink_beer],
     "can_smoke": False
 }
 
@@ -75,7 +75,7 @@ room_toilet = {
     "exits": {"west": "Dancefloor"},
     "time_cost": {"west": 7},
     "items": [],
-    "consumables": []
+    "consumables": [],
     "can_smoke": False
 }
 
@@ -89,7 +89,7 @@ room_balcony = {
     "exits": {"northwest": "Bar2", "south": "Bar3", "north": "Dancefloor"},
     "time_cost": {"northwest": 4, "south": 5, "north": 4},
     "items": [],
-    "consumables": []
+    "consumables": [],
     "can_smoke": True
 }
 
@@ -107,7 +107,7 @@ room_dancefloor = {
     "time_cost": {"west": 2, "south": 4, "northwest": 3, "north": 4, "southwest": 7, "east": 7},
 
     "items": [],
-    "consumables": []
+    "consumables": [],
     "can_smoke": False
 }
 
@@ -121,7 +121,7 @@ room_food = {
     "time_cost": {"south": 4},
 
     "items": [],
-    "consumables": [consumables.food_burger, consumables.food_chips, consumables.food_subway, consumables.food_kebab]
+    "consumables": [consumables.food_burger, consumables.food_chips, consumables.food_subway, consumables.food_kebab],
     "can_smoke": False
 }
 
@@ -135,7 +135,7 @@ room_taly = {
     "time_cost": {"south": 2},
 
     "items": [item_keys, item_driving_license, item_money, item_id],
-    "consumables": []
+    "consumables": [],
     "can_smoke": False
 }
 
@@ -149,7 +149,7 @@ room_taxi = {
     "time_cost": {"south": 15, "north": 15},
     "money_cost": {"south": 8, "north": 8},
     "items": [],
-    "consumables": []
+    "consumables": [],
     "can_smoke": False
 }
 
