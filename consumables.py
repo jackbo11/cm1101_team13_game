@@ -47,7 +47,7 @@ drink_beer = {
 }
 
 drink_VK = {
-    "id": "VK",
+    "id": "vk",
 
     "name": "A VK",
 

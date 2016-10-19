@@ -84,7 +84,10 @@ def print_consumables(items):
 
 
 def apply_consumable_effect_by_id(consumable, player, room):
-    apply_consumable_effect([item for item in room["consumables"] if item.get('id') == consumable][0], player)
+    try:
+        apply_consumable_effect([item for item in room["consumables"] if item.get('id') == consumable][0], player)
+    except:
+        print("You cannot get a {0} here.".format(consumable))
 
 def apply_consumable_effect(consumable, player):
     if "drink_left_effect" in consumable:
