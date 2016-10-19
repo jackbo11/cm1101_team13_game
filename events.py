@@ -2,6 +2,7 @@ import random
 import gameparser
 from soundplayer import SoundPlayer
 import sounds
+import sys
 
 
 def bad_things_happen(player):
@@ -46,6 +47,8 @@ def bad_things_happen(player):
                 player.pay(2)
         elif r == 5:
             print("You are too drunk that you fall down")
+            print("You are injured! GAME OVER!")
+            sys.exit()
 
     elif player.money == 0:
         player.increase_happiness(-2)
