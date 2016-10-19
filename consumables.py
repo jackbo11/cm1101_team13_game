@@ -7,7 +7,8 @@ drink_single = {
 
     "drink_left_effect": 3,
 
-    "price": 2}
+    "price": 2
+}
 
 drink_double = {
     "id": "double",
@@ -101,7 +102,7 @@ food_kebab = {
     
     "description": "balh blah",
     
-    "hapiness_effect": 1
+    "hapiness_effect": 1,
     
     "price": 2
 }
