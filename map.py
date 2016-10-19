@@ -21,7 +21,6 @@ room_bar1 = {
     "description":
     """You are now in Bar 1. Faced with a mass of people all calling for the bartender to serve them. 
     Do you want to wait for some drinks?
-    A single for £2, a beer for £3 and water is free. 
     You can go east to the Dancefloor.""",
 
     "exits":  {"east": "Dancefloor"},
@@ -38,7 +37,6 @@ room_bar2 = {
     "description":
     """You are now in Bar 2. Slightly quieter than the other two bars but with less staff available, making the queue still seem never-ending!
     Do you want some drinks?
-    A beer for £3, a double for £5 and water is free. 
     You can go northeast to the Dancefloor or southeast to the Balcony.""",
 
     "exits": {"northeast": "Dancefloor", "southeast": "Balcony"},
@@ -54,8 +52,7 @@ room_bar3 = {
 
     "description":
     """You are now in Bar 3. This is the bar to be at for those renowned VKs, the SU classic drink.
-    Do you want some drinks?
-    A beer for £3, a VK for £3, a single for £2 and water is free. 
+    Do you want some drinks? 
     You can go north to the Balcony to keep your mind awake.""",
 
     "exits": {"north": "Balcony"},
