@@ -300,7 +300,7 @@ def add_money_cost(room, direction):
 
 
 def verify_player_su(player):
-    if player.age >= 18 and any(d['id'] == 'id' for d in player.inventory) and any(d['id'] == 'drivinglicense' for d in player.inventory):
+    if (player.age >= 18) and (any(d['id'] == 'id' for d in player.inventory)) and (any(d['id'] == 'drivinglicense' for d in player.inventory)):
         return True
     else:
         return False
@@ -312,9 +312,19 @@ def execute_go(direction):
     moving). Otherwise, it prints "You cannot go there."
     """
     if is_valid_exit(player1.current_room["exits"], direction) and can_player_afford_room(player1, player1.current_room, direction):
-        add_time_cost(player1.current_room, direction)
-        add_money_cost(player1.current_room, direction)
-        player1.current_room = move(player1.current_room["exits"], direction)
+
+        new_room = move(player1.current_room["exits"], direction)
+        if new_room["name"] == "Dance floor":
+            if verify_player_su(player1):
+                add_time_cost(player1.current_room, direction)
+                add_money_cost(player1.current_room, direction)
+                player1.current_room = new_room
+            else:
+                print("You cannot get in! Are you sure you have your id and driving license? Are you over 18?")
+        else:
+            add_time_cost(player1.current_room, direction)
+            add_money_cost(player1.current_room, direction)
+            player1.current_room = new_room
     else:
         print("You cannot go there.")
 

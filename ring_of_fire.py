@@ -6,6 +6,7 @@ import gameparser
 def play_ring_of_fire(player1, timer):
 
     # Just some variables
+    gen = 0
     choose = 0
     confirm = 0
     chance = 0
