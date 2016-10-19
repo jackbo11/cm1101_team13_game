@@ -114,7 +114,7 @@ room_food = {
     "time_cost": {"south": 4},
 
     "items": [],
-    "consumables": [consumables.food_burger]
+    "consumables": [consumables.food_burger, consumables.food_chips, consumables.food_subway]
 }
 
 room_taly = {
