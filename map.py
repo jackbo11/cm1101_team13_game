@@ -10,6 +10,7 @@ You can go southeast to the Dancefloor or north to take taxi to go Talybont.""",
 
     "exits": {"southeast": "Dancefloor", "north": "Taxi"},
     "time_cost": {"southeast": 30, "north": 20},
+    "money_cost": {"southeast": 3, "north": 0}
     "items": [],
     "consumables": [],
     "can_smoke": True
