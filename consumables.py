@@ -99,7 +99,7 @@ food_Ivan = {
     
     "name": "Ivan",
     
-    "description": "balh blah",
+    "description": "Hong Kong fish",
     
     "happiness_effect": 7,
     
