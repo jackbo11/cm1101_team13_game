@@ -86,7 +86,7 @@ def print_consumables(items):
 def apply_consumable_effect_by_id(consumable, player, room):
     try:
         consumable_item = [item for item in room["consumables"] if item.get('id') == consumable][0]
-        if consumable_item["price"] > player.money:
+        if can_player_afford(player, consumable_item["price"]) == False:
             print("You do not have enough money to get this item!")
         else:
             apply_consumable_effect(consumable_item , player)
@@ -267,6 +267,24 @@ def is_valid_exit(exits, chosen_exit):
     return chosen_exit in exits
 
 
+def can_player_afford_room(player, room, direction):
+    if "money_cost" in room:
+        money_to_pay = room["money_cost"][direction]
+        if can_player_afford(player, money_to_pay):
+            return True
+        else:
+            return False
+    else:
+        return True
+
+
+def can_player_afford(player, amount):
+    if amount > player.money:
+        return False
+    else:
+        return True
+
+
 def add_time_cost(room, direction):
     if "time_cost" in room:
         time_to_add = room["time_cost"][direction]
@@ -285,7 +303,7 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    if is_valid_exit(player1.current_room["exits"], direction):
+    if is_valid_exit(player1.current_room["exits"], direction) and can_player_afford_room(player1, player1.current_room, direction):
         add_time_cost(player1.current_room, direction)
         add_money_cost(player1.current_room, direction)
         player1.current_room = move(player1.current_room["exits"], direction)
