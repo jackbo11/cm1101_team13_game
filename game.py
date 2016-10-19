@@ -323,8 +323,11 @@ def execute_drink(player):
 
 def execute_smoke(player):
     if player1.smoker:
-        print(player1.smoke())
-        print("You have {0} cigarettes left.".format(player.cig_left))
+        if player1.current_room["can_smoke"]:
+            print(player1.smoke())
+            print("You have {0} cigarettes left.".format(player.cig_left))
+        else:
+            print("You cannot smoke here.")
     else:
         print("You cannot smoke as you are a non smoker.")
 
@@ -498,10 +501,18 @@ def main():
         # Display game status (room description, inventory etc.)
         print_room(player1.current_room)
         print_inventory_items(player1.inventory)
+        check_player_winning(player1)
         # Show the menu with possible actions and ask the player
         command = menu(player1.current_room["exits"], player1.current_room["items"], player1.inventory)
         # Execute the player's command
         execute_command(command)
+
+
+def check_player_winning(player):
+    if timer.time_greater_than(3,00,23):
+        print("It's 3 AM, the lights are on, the night is over. Can you get home?")
+        print("A taxi is waiting outside, it costs: £8.")
+
 
 
 def welcome():
