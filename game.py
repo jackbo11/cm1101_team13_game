@@ -314,7 +314,9 @@ def execute_go(direction):
     if is_valid_exit(player1.current_room["exits"], direction) and can_player_afford_room(player1, player1.current_room, direction):
 
         new_room = move(player1.current_room["exits"], direction)
-        if new_room["name"] == "Dance floor":
+        # print(new_room)
+        if new_room["name"] == "Dance Floor":
+            # print(verify_player_su(player1))
             if verify_player_su(player1):
                 add_time_cost(player1.current_room, direction)
                 add_money_cost(player1.current_room, direction)
