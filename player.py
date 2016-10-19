@@ -143,7 +143,10 @@ class Player:
         self.drink_left += amount
 
     def pay(self, amount):
-        self.money = self.money - amount
+        if amount > self.money:
+            return "You cannot afford this!"
+        else:
+            self.money = self.money - amount
 
     def get_stats(self):
         return """
