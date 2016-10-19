@@ -29,7 +29,7 @@ def play_ring_of_fire(player1, timer):
 
     # GAME START
     print("You start the night in your flat with your flat mates, what were their names again?")
-    while choose = 0:
+    while choose == 0:
         npc1 = input("Flat mate 1: ")
         npc1 = normalise_input(npc1)
         if npc1 == "":
@@ -39,7 +39,7 @@ def play_ring_of_fire(player1, timer):
         else:
             choose = 1
     choose = 0
-    while choose = 0:
+    while choose == 0:
         npc2 = input("Flat mate 2: ")
         npc2 = normalise_input(npc2)
         if npc2 == "":
@@ -49,7 +49,7 @@ def play_ring_of_fire(player1, timer):
         else:
             choose = 1
     choose = 0
-    while choose = 0:
+    while choose == 0:
         npc3 = input("Flat mate 3: ")
         npc3 = normalise_input(npc3)
         if npc3 == "":
@@ -59,7 +59,7 @@ def play_ring_of_fire(player1, timer):
         else:
             choose = 1
     choose = 0
-    while choose = 0:
+    while choose == 0:
         npc4 = input("Flat mate 4: ")
         npc4 = normalise_input(npc4)
         if npc4 == "":
@@ -74,11 +74,12 @@ def play_ring_of_fire(player1, timer):
     # Player and NPCs
     players = [str(player1.name), str(npc1), str(npc2), str(npc3), str(npc4)]
 
+    # Describing the game
     print(", ".join(x for x in players))
     print("You start the night by playing the drinking game RING OF FIRE")
-
+    input("")
     print("Each card has a rule, and those rules are...")
-    
+    print("\n")
     print(" Ace   : Everybody drinks")
     print(" 2     : You! Pick someone else to drink")
     print(" 3     : Me! You drink")
@@ -87,11 +88,11 @@ def play_ring_of_fire(player1, timer):
     print(" 6     : Dicks! Boys drink")
     print(" 7     : Heaven! Last one to put their hand in the air drinks")
     print(" 8     : Mate! Pick someone and you both have to drink")
-    print(" 9     : Rhyme! Pick a word and everyone has to rhyme with it. If you pause you drink")
-    print(" 10    : Categories! Pick a category of items and everyone has to say one. If you pause you drink")
+    print(" 9     : Rhyme! Pick a word and everyone has to rhyme with it")
+    print(" 10    : Categories! Pick a category of items and everyone has to say one")
     print(" Jack  : Single! Take a single shot")
     print(" Queen : Double! Take a double shot")
-    print(" King  : Dirty pint! Everyone pours some of their drink into one cup and you have to drink it")
+    print(" King  : Dirty pint! A mix of everyone else's drink in one cup")
         
     # MAIN LOOP
     # YOUR TURN
