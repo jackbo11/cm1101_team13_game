@@ -69,3 +69,27 @@ food_burger = {
 
     "price": 3
 }
+
+food_chips = {
+    "id": "chips",
+    
+    "name": "chips",
+    
+    "description": "balh blah",
+    
+    "happiness_effect": 1,
+    
+    "price": 2
+}
+
+food_subway = {
+    "id": "subway",
+    
+    "name": "subway",
+    
+    "description": "balh blah",
+    
+    "happiness_effect": 2,
+    
+    "price": 3
+}
