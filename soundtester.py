@@ -1,7 +1,7 @@
 from sounds import *
 from soundplayer import SoundPlayer
 def main():
-    sound = scales
+    sound = song_closer
     SoundPlayer.play_beep(sound)
 
 # Are we being run as a script? If so, run main().
