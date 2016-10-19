@@ -9,7 +9,7 @@ room_outside = {
 You can go southeast to the Dancefloor or north to take taxi to go Talybont.""",
 
     "exits": {"southeast": "Dancefloor", "north": "Taxi"},
-    "time_cost": {"southeast": 3, "north": 2},
+    "time_cost": {"southeast": 30, "north": 20},
     "items": [],
     "consumables": [],
     "can_smoke": True
@@ -25,7 +25,7 @@ Do you want to wait for some drinks?
     You can go east to the Dancefloor.""",
 
     "exits":  {"east": "Dancefloor"},
-    "time_cost": {"east": 2},
+    "time_cost": {"east": 20},
 
     "items": [],
     "consumables": [consumables.drink_beer, consumables.drink_single, consumables.drink_water],
@@ -42,7 +42,7 @@ Do you want some drinks?
 You can go northeast to the Dancefloor or southeast to the Balcony.""",
 
     "exits": {"northeast": "Dancefloor", "southeast": "Balcony"},
-    "time_cost": {"northeast": 7, "southeast": 4},
+    "time_cost": {"northeast": 30, "southeast": 20},
 
     "items": [],
     "consumables": [consumables.drink_VK, consumables.drink_single, consumables.drink_double, consumables.drink_water],
@@ -59,7 +59,7 @@ Do you want some drinks?
 You can go north to the Balcony to keep your mind awake.""",
 
     "exits": {"north": "Balcony"},
-    "time_cost": {"north": 5,},
+    "time_cost": {"north": 20},
 
     "items": [],
     "consumables": [consumables.drink_water, consumables.drink_VK, consumables.drink_beer],
@@ -73,7 +73,7 @@ room_toilet = {
     """You are in the toliet. You can go west to the Dance Floor,""",
 
     "exits": {"west": "Dancefloor"},
-    "time_cost": {"west": 7},
+    "time_cost": {"west": 30},
     "items": [],
     "consumables": [],
     "can_smoke": False
@@ -88,7 +88,7 @@ You can go northwest to the Bar2, south to the Bar3 or north
 to the Dancefloor. """,
 
     "exits": {"northwest": "Bar2", "south": "Bar3", "north": "Dancefloor"},
-    "time_cost": {"northwest": 4, "south": 5, "north": 4},
+    "time_cost": {"northwest": 20, "south": 30, "north": 20},
     "items": [],
     "consumables": [],
     "can_smoke": True
@@ -107,7 +107,7 @@ southwest to the Bar2, south to the Balcony,
 east to the toliet or north to the food. """,
 
     "exits": {"west": "Bar1", "south": "Balcony", "northwest": "Outside", "north": "Food", "southwest": "Bar2", "east": "Toilet"},
-    "time_cost": {"west": 2, "south": 4, "northwest": 3, "north": 4, "southwest": 7, "east": 7},
+    "time_cost": {"west": 20, "south": 30, "northwest": 30, "north": 30, "southwest": 40, "east": 30},
 
     "items": [],
     "consumables": [],
@@ -122,7 +122,7 @@ room_food = {
 burger or chips. You can go south to the Dancefloor or eat a burger.""",
 
     "exits": {"south": "Dancefloor"},
-    "time_cost": {"south": 4},
+    "time_cost": {"south": 40},
 
     "items": [],
     "consumables": [consumables.food_burger, consumables.food_chips, consumables.food_subway, consumables.food_kebab],
@@ -136,7 +136,7 @@ room_taly = {
     """You are in Talybont North having pre drinks.""",
 
     "exits": {"south": "Taxi"},
-    "time_cost": {"south": 2},
+    "time_cost": {"south": 10},
 
     "items": [item_keys, item_driving_license, item_money, item_id],
     "consumables": [],
@@ -151,7 +151,7 @@ room_taxi = {
 or go north to Talybont.""",
 
     "exits": {"south": "Outside", "north": "Talybont"},
-    "time_cost": {"south": 15, "north": 15},
+    "time_cost": {"south": 20, "north": 20},
     "money_cost": {"south": 8, "north": 8},
     "items": [],
     "consumables": [],
