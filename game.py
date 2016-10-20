@@ -113,9 +113,45 @@ def print_room(room):
     is printed in all capitals and framed by blank lines. Then follows the
     description of the room and a blank line again. If there are any items
     in the room, the list of items is printed next followed by a blank line
-    (use print_room_items() for this). For example: """
+    (use print_room_items() for this). For example:
 
+    >>> print_room(rooms["Office"])
+    <BLANKLINE>
+    THE GENERAL OFFICE
+    <BLANKLINE>
+    You are standing next to the cashier's till at
+    30-36 Newport Road. The cashier looks at you with hope
+    in their eyes. If you go west you can return to the
+    Queen's Buildings.
+    <BLANKLINE>
+    There is a pen here.
+    <BLANKLINE>
 
+    >>> print_room(rooms["Reception"])
+    <BLANKLINE>
+    RECEPTION
+    <BLANKLINE>
+    You are in a maze of twisty little passages, all alike.
+    Next to you is the School of Computer Science and
+    Informatics reception. The receptionist, Matt Strangis,
+    seems to be playing an old school text-based adventure
+    game on his computer. There are corridors leading to the
+    south and east. The exit is to the west.
+    <BLANKLINE>
+    There is a pack of biscuits, a student handbook here.
+    <BLANKLINE>
+
+    >>> print_room(rooms["Admins"])
+    <BLANKLINE>
+    MJ AND SIMON'S ROOM
+    <BLANKLINE>
+    You are leaning agains the door of the systems managers'
+    room. Inside you notice Matt "MJ" John and Simon Jones. They
+    ignore you. To the north is the reception.
+    <BLANKLINE>
+
+    Note: <BLANKLINE> here means that doctest should expect a blank line.
+    """
     # Display room name
     print()
     print(room["name"].upper())
@@ -135,6 +171,13 @@ def exit_leads_to(exits, direction):
     """This function takes a dictionary of exits and a direction (a particular
     exit taken from this dictionary). It returns the name of the room into which
     this exit leads. For example:
+
+    >>> exit_leads_to(rooms["Reception"]["exits"], "south")
+    "MJ and Simon's room"
+    >>> exit_leads_to(rooms["Reception"]["exits"], "east")
+    "your personal tutor's office"
+    >>> exit_leads_to(rooms["Tutor"]["exits"], "west")
+    'Reception'
     """
     return rooms[exits[direction]]["name"]
 
